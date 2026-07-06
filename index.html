@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boda Edi & Pao | 12.12.2026</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --color-fondo: #F9F6F0; /* Beige muy suave */
+            --color-verde: #7B8E72; /* Verde salvia / eucalipto */
+            --color-dorado: #C1A68D; /* Dorado apagado / Arena */
+            --color-texto: #3E3E3E;
+            --color-blanco: #FFFFFF;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--color-fondo);
+            color: var(--color-texto);
+            text-align: center;
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        h1, h2, h3, .fuente-elegante {
+            font-family: 'Playfair Display', serif;
+        }
+
+        /* --- Portada Principal --- */
+        .hero {
+            position: relative;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: var(--color-blanco);
+            padding: 20px;
+            /* Imagen de bosque/naturaleza para vibra de Iguaima */
+            background: linear-gradient(rgba(45, 58, 48, 0.5), rgba(45, 58, 48, 0.6)), url('https://images.unsplash.com/photo-1511285560929-80b456fea0bc?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') no-repeat center center/cover;
+        }
+
+        .hero h1 {
+            font-size: 5rem;
+            margin-bottom: 5px;
+            font-weight: 400;
+            letter-spacing: 2px;
+        }
+
+        .hero h2 {
+            font-size: 1.5rem;
+            font-style: italic;
+            font-weight: 300;
+            margin-bottom: 25px;
+        }
+
+        .hero p.fecha {
+            font-size: 1.2rem;
+            letter-spacing: 5px;
+            text-transform: uppercase;
+            font-weight: 500;
+            border-top: 1px solid white;
+            border-bottom: 1px solid white;
+            padding: 10px 0;
+        }
+
+        /* --- Contador --- */
+        .countdown-container {
+            background: var(--color-blanco);
+            padding: 30px;
+            margin: -40px auto 40px;
+            max-width: 700px;
+            border-radius: 4px;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.05);
+            display: flex;
+            justify-content: space-around;
+            position: relative;
+            z-index: 10;
+        }
+
+        .time-section {
+            text-align: center;
+        }
+
+        .time-section span {
+            display: block;
+            font-size: 2.5rem;
+            font-family: 'Playfair Display', serif;
+            color: var(--color-verde);
+        }
+
+        .time-section p {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #888;
+        }
+
+        /* --- Secciones Generales --- */
+        .section {
+            padding: 80px 20px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-size: 2.8rem;
+            color: var(--color-verde);
+            margin-bottom: 15px;
+        }
+
+        .section-subtitle {
+            font-size: 1rem;
+            color: #777;
+            margin-bottom: 40px;
+        }
+
+        /* --- Tarjetas e Íconos --- */
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .card {
+            background: var(--color-blanco);
+            padding: 40px 30px;
+            border-radius: 4px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.03);
+            border-bottom: 4px solid var(--color-dorado);
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card i {
+            font-size: 2.5rem;
+            color: var(--color-dorado);
+            margin-bottom: 20px;
+        }
+
+        /* --- Itinerario / Cronograma --- */
+        .timeline {
+            position: relative;
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: left;
+        }
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 20px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: var(--color-verde);
+            opacity: 0.3;
+        }
+        .timeline-item {
+            position: relative;
+            padding-left: 60px;
+            margin-bottom: 30px;
+        }
+        .timeline-item i {
+            position: absolute;
+            left: 7px;
+            top: 5px;
+            background: var(--color-fondo);
+            color: var(--color-verde);
+            font-size: 1.5rem;
+        }
+        .timeline-time {
+            font-weight: 600;
+            color: var(--color-dorado);
+            font-size: 1.1rem;
+        }
+        .timeline-content h4 {
+            font-size: 1.2rem;
+            margin: 5px 0;
+            font-family: 'Playfair Display', serif;
+        }
+        .timeline-content p {
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        /* --- Botones --- */
+        .btn {
+            display: inline-block;
+            background-color: var(--color-verde);
+            color: var(--color-blanco);
+            padding: 15px 35px;
+            text-decoration: none;
+            font-weight: 500;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            margin-top: 20px;
+            transition: all 0.3s ease;
+            border: 1px solid var(--color-verde);
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: transparent;
+            color: var(--color-verde);
+        }
+
+        /* --- Formulario --- */
+        form {
+            background: var(--color-blanco);
+            padding: 40px;
+            border-radius: 4px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.03);
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            text-align: left;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        label {
+            font-weight: 500;
+            font-size: 0.9rem;
+            color: var(--color-texto);
+        }
+
+        input, select, textarea {
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 2px;
+            font-family: 'Montserrat', sans-serif;
+            width: 100%;
+            background-color: #fafafa;
+        }
+        
+        input:focus, select:focus {
+            outline: none;
+            border-color: var(--color-verde);
+        }
+
+        /* --- Footer --- */
+        footer {
+            background-color: var(--color-verde);
+            color: var(--color-blanco);
+            padding: 40px 20px;
+            font-size: 0.9rem;
+            margin-top: 40px;
+        }
+
+        /* Responsive */
+        @media (max-width: 600px) { 
+            .hero h1 { font-size: 3.5rem; }
+            .time-section span { font-size: 1.8rem; }
+            .section { padding: 50px 20px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="hero">
+        <h2 class="animate__animated animate__fadeInDown">Nuestra Boda</h2>
+        <h1 class="animate__animated animate__zoomIn animate__delay-1s">Edi & Pao</h1>
+        <p class="fecha animate__animated animate__fadeInUp animate__delay-2s">12 . 12 . 2026</p>
+    </div>
+
+    <div class="countdown-container animate__animated animate__fadeInUp animate__delay-3s">
+        <div class="time-section">
+            <span id="days">00</span>
+            <p>Días</p>
+        </div>
+        <div class="time-section">
+            <span id="hours">00</span>
+            <p>Hrs</p>
+        </div>
+        <div class="time-section">
+            <span id="minutes">00</span>
+            <p>Min</p>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2 class="section-title">Celebra con Nosotros</h2>
+        <p class="section-subtitle">Una celebración íntima, rodeados de naturaleza y de las personas que más amamos.</p>
+        <p>El amor nos ha traído hasta aquí y no imaginamos dar este gran paso sin ti. Hemos preparado una microboda muy especial donde cada detalle está pensado para compartir tiempo de calidad juntos.</p>
+    </div>
+
+    <div class="section" style="background-color: var(--color-blanco);">
+        <h2 class="section-title">Coordenadas del Gran Día</h2>
+        <div class="card-grid">
+            <div class="card">
+                <i class="fa-solid fa-map-location-dot"></i>
+                <h3 class="fuente-elegante">Lugar</h3>
+                <p style="margin-top: 10px; font-weight: 500;">Hotel Iguaima</p>
+                <p style="font-size: 0.9rem; color: #666;">Cañón del Combeima<br>Ibagué, Tolima</p>
+                <a href="https://maps.google.com/?q=Hotel+Iguaima+Ibague" target="_blank" class="btn" style="padding: 10px 20px; margin-top: 15px;">Ver Mapa</a>
+            </div>
+
+            <div class="card">
+                <i class="fa-solid fa-bed"></i>
+                <h3 class="fuente-elegante">Hospedaje</h3>
+                <p style="margin-top: 10px; font-size: 0.9rem; color: #666;">Queremos que disfrutes sin preocupaciones. Su alojamiento en las instalaciones del hotel la noche de la boda está cubierto por nosotros.</p>
+            </div>
+
+            <div class="card">
+                <i class="fa-solid fa-champagne-glasses"></i>
+                <h3 class="fuente-elegante">Vestimenta</h3>
+                <p style="margin-top: 10px; font-weight: 500;">Cóctel / Formal de Día</p>
+                <p style="font-size: 0.9rem; color: #666;">Estilo bohemio y elegante. Recomendamos tonos tierra, pasteles y neutros. (Por favor, reserva el blanco para la novia).</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2 class="section-title">El Itinerario</h2>
+        <p class="section-subtitle">Acompáñanos a vivir cada momento de esta mágica tarde.</p>
+        
+        <div class="timeline">
+            <div class="timeline-item">
+                <i class="fa-solid fa-tree"></i>
+                <div class="timeline-time">3:00 P.M.</div>
+                <div class="timeline-content">
+                    <h4>Recepción y Bienvenida</h4>
+                    <p>Llegada al área abierta del hotel. Te recibiremos con bebidas refrescantes mientras dejas tu huella en nuestro árbol de recuerdos.</p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <i class="fa-solid fa-ring"></i>
+                <div class="timeline-time">3:30 P.M.</div>
+                <div class="timeline-content">
+                    <h4>Ceremonia al Aire Libre</h4>
+                    <p>El momento del "Sí, acepto" rodeados de la naturaleza del cañón.</p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <i class="fa-solid fa-martini-glass-citrus"></i>
+                <div class="timeline-time">4:00 P.M.</div>
+                <div class="timeline-content">
+                    <h4>Cócteles y Fotografías</h4>
+                    <p>Brindis al atardecer, pasabocas y nuestra sesión de fotos con ustedes.</p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <i class="fa-solid fa-utensils"></i>
+                <div class="timeline-time">6:00 P.M.</div>
+                <div class="timeline-content">
+                    <h4>Banquete y Celebración</h4>
+                    <p>Paso al salón principal para disfrutar de una deliciosa cena, vino, el corte del pastel y el inicio de la fiesta.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="section" style="background-color: #EFECE5;">
+        <h2 class="section-title">RSVP</h2>
+        <p class="section-subtitle">Por favor, confirma tu asistencia antes del 15 de Noviembre de 2026.<br>También puedes confirmar directamente a: <strong>palollitas@gmail.com</strong></p>
+        
+        <form action="mailto:palollitas@gmail.com" method="post" enctype="text/plain">
+            <div>
+                <label for="nombre">Nombre Completo(s):</label>
+                <input type="text" id="nombre" name="Nombre" required placeholder="Ej: Familia Pérez o Juan y María">
+            </div>
+            
+            <div>
+                <label for="asistencia">¿Nos acompañarás?</label>
+                <select id="asistencia" name="Asistencia" required>
+                    <option value="">Selecciona una opción</option>
+                    <option value="Sí, asistiré felizmente">¡Sí, ahí estaré!</option>
+                    <option value="No podré asistir">No podré asistir, pero los acompaño de corazón</option>
+                </select>
+            </div>
+
+            <div>
+                <label for="menu">Restricciones alimentarias o alergias:</label>
+                <textarea id="menu" name="Restricciones" rows="3" placeholder="Es muy importante para nosotros. Ej: Soy vegetariano, alergia a los mariscos, intolerancia al gluten... (Escribe 'Ninguna' si no aplicas)"></textarea>
+            </div>
+
+            <button type="submit" class="btn" style="width: 100%;">Confirmar Asistencia</button>
+        </form>
+    </div>
+
+    <footer>
+        <h2 class="fuente-elegante" style="font-size: 2rem; margin-bottom: 10px;">Edi & Pao</h2>
+        <p style="letter-spacing: 2px;">12 DICIEMBRE 2026</p>
+    </footer>
+
+    <script>
+        const weddingDate = new Date("Dec 12, 2026 15:00:00").getTime();
+
+        const timer = setInterval(function() {
+            const now = new Date().getTime();
+            const distance = weddingDate - now;
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+
+            document.getElementById("days").innerText = days.toString().padStart(2, '0');
+            document.getElementById("hours").innerText = hours.toString().padStart(2, '0');
+            document.getElementById("minutes").innerText = minutes.toString().padStart(2, '0');
+
+            if (distance < 0) {
+                clearInterval(timer);
+                document.querySelector(".countdown-container").innerHTML = "<h3 style='color: var(--color-verde); font-family: Playfair Display;'>¡El gran día ha llegado!</h3>";
+            }
+        }, 1000);
+    </script>
+</body>
+</html>
