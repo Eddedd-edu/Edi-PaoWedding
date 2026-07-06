@@ -1,231 +1,380 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Boda Edi & Pao | 12.12.2026</title>
-    
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <style>
-        :root {
-            --color-fondo: #F9F6F0;
-            --color-verde: #7B8E72;
-            --color-dorado: #C1A68D;
-            --color-texto: #3E3E3E;
-            --color-blanco: #FFFFFF;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Edi & Pao | Nos Casamos · 12.12.2026</title>
+<meta name="description" content="Acompáñanos a celebrar la boda de Edi y Pao el 12 de diciembre de 2026 en el Cañón del Combeima, Ibagué. Confirma tu asistencia aquí.">
+<meta name="theme-color" content="#7B8E72">
 
-        * { box-sizing: border-box; margin: 0; padding: 0; }
+<!-- Open Graph / redes sociales -->
+<meta property="og:title" content="Edi & Pao · Nos Casamos">
+<meta property="og:description" content="12 de diciembre de 2026 · Hotel Iguaima, Cañón del Combeima, Ibagué">
+<meta property="og:type" content="website">
+<meta property="og:image" content="DSC_0714.jpeg">
 
-        body {
-            font-family: 'Montserrat', sans-serif;
-            background-color: var(--color-fondo);
-            color: var(--color-texto);
-            text-align: center;
-            overflow-x: hidden;
-            line-height: 1.6;
-            -webkit-font-smoothing: antialiased;
-        }
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%8D%83%3C/text%3E%3C/svg%3E">
 
-        h1, h2, h3, .fuente-elegante { font-family: 'Playfair Display', serif; }
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-        /* --- Portada Principal --- */
-        .hero {
-            position: relative;
-            height: 100vh;
-            min-height: 600px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            color: var(--color-blanco);
-            padding: 20px;
-            background: linear-gradient(rgba(45, 58, 48, 0.4), rgba(45, 58, 48, 0.6)), 
-                        url('DSC_0714.jpeg') no-repeat center center/cover;
-        }
+<style>
+    :root {
+        --color-fondo: #F9F6F0;
+        --color-fondo-alt: #F1ECE2;
+        --color-verde: #7B8E72;
+        --color-verde-oscuro: #58694F;
+        --color-dorado: #C1A68D;
+        --color-texto: #3E3E3E;
+        --color-blanco: #FFFFFF;
+        --sombra-suave: 0 10px 30px rgba(62, 62, 62, 0.08);
+        --transicion: 0.35s cubic-bezier(.4,0,.2,1);
+    }
 
-        .hero h2 { font-size: 1.5rem; font-style: italic; font-weight: 300; margin-bottom: 15px; letter-spacing: 1px; }
-        .hero h1 { font-size: 4.5rem; margin-bottom: 20px; font-weight: 400; letter-spacing: 2px; line-height: 1.1; }
-        .hero p.fecha { font-size: 1.1rem; letter-spacing: 4px; text-transform: uppercase; font-weight: 500; border-top: 1px solid rgba(255,255,255,0.7); border-bottom: 1px solid rgba(255,255,255,0.7); padding: 12px 0; margin-top: 10px; }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
 
-        /* --- Contador --- */
-        .countdown-container {
-            background: var(--color-blanco);
-            padding: 25px 15px;
-            width: 90%;
-            max-width: 600px;
-            margin: -50px auto 40px;
-            border-radius: 8px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.08);
-            display: flex;
-            justify-content: space-evenly;
-            position: relative;
-            z-index: 10;
-        }
+    html { scroll-behavior: smooth; }
 
-        .time-section { text-align: center; flex: 1; }
-        .time-section span { display: block; font-size: 2.2rem; font-family: 'Playfair Display', serif; color: var(--color-verde); line-height: 1; margin-bottom: 5px; }
-        .time-section p { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px; color: #888; font-weight: 600; }
+    body {
+        font-family: 'Montserrat', sans-serif;
+        background-color: var(--color-fondo);
+        color: var(--color-texto);
+        text-align: center;
+        overflow-x: hidden;
+        line-height: 1.7;
+        -webkit-font-smoothing: antialiased;
+    }
 
-        /* --- Secciones Generales --- */
-        .section { padding: 70px 20px; max-width: 900px; margin: 0 auto; }
-        .section-title { font-size: 2.5rem; color: var(--color-verde); margin-bottom: 15px; line-height: 1.2; }
-        .section-subtitle { font-size: 1rem; color: #777; margin-bottom: 30px; font-style: italic; }
-        .texto-historia { font-size: 1.05rem; color: var(--color-texto); line-height: 1.8; text-align: justify; text-align-last: center; margin-bottom: 20px; }
+    h1, h2, h3, .fuente-elegante { font-family: 'Playfair Display', serif; }
 
-        /* --- Imagen Decorativa --- */
-        .imagen-decorativa { width: 100%; max-width: 500px; height: auto; border-radius: 150px 150px 10px 10px; margin: 30px auto; display: block; box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
+    a { color: inherit; }
 
-        /* --- Tarjetas (Grid) --- */
-        .card-grid { display: grid; grid-template-columns: 1fr; gap: 25px; margin-top: 40px; }
-        .card { background: var(--color-blanco); padding: 35px 25px; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.04); border-bottom: 4px solid var(--color-dorado); transition: transform 0.3s ease; }
-        .card:hover { transform: translateY(-5px); }
-        .card i { font-size: 2.2rem; color: var(--color-dorado); margin-bottom: 15px; }
-        .card h3 { font-size: 1.4rem; margin-bottom: 10px; color: var(--color-verde); }
-        .card p { font-size: 0.95rem; color: #555; }
+    :focus-visible {
+        outline: 2px solid var(--color-verde-oscuro);
+        outline-offset: 3px;
+    }
 
-        /* --- Itinerario / Cronograma --- */
-        .timeline { position: relative; max-width: 100%; margin: 0 auto; text-align: left; padding: 20px 0; }
-        .timeline::before { content: ''; position: absolute; left: 24px; top: 0; bottom: 0; width: 2px; background: var(--color-verde); opacity: 0.3; }
-        .timeline-item { position: relative; padding-left: 65px; margin-bottom: 35px; }
-        .timeline-item i { position: absolute; left: 10px; top: 0; background: var(--color-fondo); color: var(--color-verde); font-size: 1.5rem; width: 30px; text-align: center; }
-        .timeline-time { font-weight: 600; color: var(--color-dorado); font-size: 1.1rem; margin-bottom: 5px; }
-        .timeline-content h4 { font-size: 1.3rem; margin: 0 0 8px 0; color: var(--color-texto); }
-        .timeline-content p { font-size: 0.95rem; color: #666; margin: 0; }
+    /* --- Divisor botánico (elemento firma) --- */
+    .divisor {
+        width: 100%;
+        max-width: 220px;
+        margin: 10px auto 0;
+        opacity: 0.75;
+        color: var(--color-dorado);
+    }
+    .divisor svg { width: 100%; height: auto; display: block; }
 
-        /* --- Formulario & Botones --- */
-        .btn { display: inline-block; background-color: var(--color-verde); color: var(--color-blanco); padding: 16px 30px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; font-size: 0.9rem; border-radius: 4px; border: 1px solid var(--color-verde); cursor: pointer; text-align: center; width: 100%; transition: all 0.3s; margin-top: 15px; }
-        .btn:hover { background-color: #62735a; }
-        .btn:disabled { background-color: #aaa; border-color: #aaa; cursor: not-allowed; }
-        
-        .rsvp-container { background: var(--color-blanco); padding: 30px 20px; border-radius: 8px; box-shadow: 0 5px 20px rgba(0,0,0,0.05); text-align: left; }
-        .oculto { display: none !important; }
-        #login-section { text-align: center; }
-        .mensaje-bienvenida { color: var(--color-verde); font-family: 'Playfair Display', serif; font-size: 1.5rem; margin-bottom: 20px; text-align: center; }
-        
-        form { display: flex; flex-direction: column; gap: 20px; }
-        label { font-weight: 600; font-size: 0.9rem; color: var(--color-verde); margin-bottom: 5px; display: block; }
-        input, select, textarea { padding: 14px 15px; border: 1px solid #ddd; border-radius: 4px; font-family: 'Montserrat', sans-serif; font-size: 1rem; width: 100%; background-color: #fafafa; appearance: none; }
-        
-        /* --- Footer --- */
-        footer { background-color: var(--color-verde); color: var(--color-blanco); padding: 40px 20px; font-size: 0.9rem; text-align: center; }
+    /* --- Portada Principal --- */
+    .hero {
+        position: relative;
+        min-height: 100svh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        color: var(--color-blanco);
+        padding: 20px;
+        background: linear-gradient(rgba(35, 46, 38, 0.45), rgba(35, 46, 38, 0.6)),
+                    url('DSC_0714.jpeg') no-repeat center center/cover;
+        background-attachment: scroll;
+    }
 
-        @media (min-width: 768px) {
-            .hero h1 { font-size: 5.5rem; }
-            .card-grid { grid-template-columns: repeat(3, 1fr); }
-            .rsvp-container { padding: 40px; margin: 0 auto; max-width: 600px; }
-            .timeline { max-width: 600px; }
-        }
-    </style>
+    .hero .eyebrow { font-size: clamp(1rem, 2.6vw, 1.4rem); font-style: italic; font-weight: 300; margin-bottom: 12px; letter-spacing: 2px; }
+    .hero h1 { font-size: clamp(3rem, 11vw, 5.8rem); margin-bottom: 18px; font-weight: 400; letter-spacing: 2px; line-height: 1.05; }
+    .hero .fecha { font-size: clamp(0.85rem, 2vw, 1.1rem); letter-spacing: 4px; text-transform: uppercase; font-weight: 500; border-top: 1px solid rgba(255,255,255,0.6); border-bottom: 1px solid rgba(255,255,255,0.6); padding: 12px 0; margin-top: 6px; }
+
+    .scroll-cue {
+        position: absolute;
+        bottom: 28px;
+        left: 50%;
+        transform: translateX(-50%);
+        color: var(--color-blanco);
+        font-size: 1.4rem;
+        animation: flotar 2.2s ease-in-out infinite;
+        text-decoration: none;
+    }
+    @keyframes flotar {
+        0%, 100% { transform: translate(-50%, 0); opacity: 0.7; }
+        50% { transform: translate(-50%, 10px); opacity: 1; }
+    }
+
+    /* --- Contador --- */
+    .countdown-container {
+        background: var(--color-blanco);
+        padding: 25px 10px;
+        width: 92%;
+        max-width: 620px;
+        margin: -45px auto 40px;
+        border-radius: 10px;
+        box-shadow: var(--sombra-suave);
+        display: flex;
+        justify-content: space-evenly;
+        position: relative;
+        z-index: 10;
+    }
+
+    .time-section { text-align: center; flex: 1; }
+    .time-section span { display: block; font-size: clamp(1.6rem, 5.5vw, 2.3rem); font-family: 'Playfair Display', serif; color: var(--color-verde); line-height: 1; margin-bottom: 6px; font-variant-numeric: tabular-nums; }
+    .time-section p { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1px; color: #999; font-weight: 600; }
+
+    /* --- Secciones Generales --- */
+    .section { padding: 70px 20px; max-width: 900px; margin: 0 auto; }
+    .section-title { font-size: clamp(1.9rem, 5vw, 2.6rem); color: var(--color-verde); margin-bottom: 12px; line-height: 1.2; }
+    .section-subtitle { font-size: 1rem; color: #888; margin-bottom: 30px; font-style: italic; }
+    .texto-historia { font-size: 1.05rem; color: var(--color-texto); line-height: 1.85; text-align: justify; text-align-last: center; margin-bottom: 20px; max-width: 640px; margin-inline: auto; }
+
+    /* --- Imagen Decorativa --- */
+    .imagen-decorativa {
+        width: 100%;
+        max-width: 480px;
+        aspect-ratio: 4 / 5;
+        object-fit: cover;
+        border-radius: 160px 160px 12px 12px;
+        margin: 35px auto;
+        display: block;
+        box-shadow: var(--sombra-suave);
+    }
+
+    /* --- Tarjetas (Grid) --- */
+    .card-grid { display: grid; grid-template-columns: 1fr; gap: 22px; margin-top: 40px; }
+    .card {
+        background: var(--color-blanco);
+        padding: 34px 24px;
+        border-radius: 10px;
+        box-shadow: 0 4px 18px rgba(0,0,0,0.05);
+        border-bottom: 4px solid var(--color-dorado);
+        transition: transform var(--transicion), box-shadow var(--transicion);
+    }
+    .card:hover, .card:focus-within { transform: translateY(-6px); box-shadow: var(--sombra-suave); }
+    .card i { font-size: 2.1rem; color: var(--color-dorado); margin-bottom: 14px; }
+    .card h3 { font-size: 1.35rem; margin-bottom: 10px; color: var(--color-verde); }
+    .card p { font-size: 0.95rem; color: #555; }
+    .card .dato { font-weight: 600; color: var(--color-texto); margin-bottom: 4px; }
+
+    /* --- Mapa --- */
+    .mapa-wrap { border-radius: 10px; overflow: hidden; box-shadow: var(--sombra-suave); margin-top: 12px; }
+    .mapa-wrap iframe { width: 100%; height: 260px; border: 0; display: block; }
+
+    /* --- Itinerario / Cronograma --- */
+    .timeline { position: relative; max-width: 100%; margin: 0 auto; text-align: left; padding: 20px 0; }
+    .timeline::before { content: ''; position: absolute; left: 24px; top: 6px; bottom: 6px; width: 2px; background: var(--color-verde); opacity: 0.25; }
+    .timeline-item { position: relative; padding-left: 65px; margin-bottom: 32px; }
+    .timeline-item:last-child { margin-bottom: 0; }
+    .timeline-item i {
+        position: absolute; left: 8px; top: -2px;
+        background: var(--color-fondo);
+        color: var(--color-verde);
+        font-size: 1.3rem; width: 34px; height: 34px;
+        display: flex; align-items: center; justify-content: center;
+        border-radius: 50%;
+        border: 1px solid rgba(123,142,114,0.3);
+    }
+    .timeline-time { font-weight: 600; color: var(--color-dorado); font-size: 1.05rem; margin-bottom: 4px; letter-spacing: 0.5px; }
+    .timeline-content h4 { font-size: 1.25rem; margin: 0 0 6px 0; color: var(--color-texto); }
+    .timeline-content p { font-size: 0.93rem; color: #666; margin: 0; }
+
+    /* --- Botones --- */
+    .btn {
+        display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+        background-color: var(--color-verde);
+        color: var(--color-blanco);
+        padding: 15px 28px;
+        font-weight: 600; letter-spacing: 1px; text-transform: uppercase; font-size: 0.85rem;
+        border-radius: 6px; border: 1px solid var(--color-verde);
+        cursor: pointer; text-align: center; width: 100%;
+        transition: background-color var(--transicion), transform var(--transicion);
+        margin-top: 12px;
+        font-family: inherit;
+        text-decoration: none;
+    }
+    .btn:hover { background-color: var(--color-verde-oscuro); }
+    .btn:active { transform: scale(0.98); }
+    .btn:disabled { background-color: #b3b3b3; border-color: #b3b3b3; cursor: not-allowed; }
+    .btn-secundario { background-color: transparent; color: var(--color-verde); }
+    .btn-secundario:hover { background-color: var(--color-verde); color: var(--color-blanco); }
+
+    .rsvp-container { background: var(--color-blanco); padding: 32px 20px; border-radius: 10px; box-shadow: var(--sombra-suave); text-align: left; }
+    .oculto { display: none !important; }
+    #login-section { text-align: center; }
+    .mensaje-bienvenida { color: var(--color-verde); font-family: 'Playfair Display', serif; font-size: 1.45rem; margin-bottom: 18px; text-align: center; }
+
+    form { display: flex; flex-direction: column; gap: 18px; }
+    label { font-weight: 600; font-size: 0.88rem; color: var(--color-verde-oscuro); margin-bottom: 6px; display: block; }
+    input, select, textarea {
+        padding: 14px 15px; border: 1px solid #ddd; border-radius: 6px;
+        font-family: 'Montserrat', sans-serif; font-size: 1rem; width: 100%;
+        background-color: #fafafa; appearance: none;
+        transition: border-color var(--transicion);
+    }
+    input:focus, select:focus, textarea:focus { border-color: var(--color-verde); }
+    textarea { resize: vertical; min-height: 80px; }
+
+    .mensaje-error {
+        color: #b3402e; margin-top: 10px; font-size: 0.88rem;
+        display: flex; align-items: center; justify-content: center; gap: 6px;
+    }
+    .mensaje-estado[aria-live] { min-height: 1.2em; }
+
+    .confirmacion-final { text-align: center; padding: 20px 10px; }
+    .confirmacion-final i { font-size: 2.6rem; color: var(--color-verde); margin-bottom: 14px; }
+    .confirmacion-final h3 { color: var(--color-verde); font-size: 1.9rem; margin-bottom: 12px; }
+
+    /* --- Footer --- */
+    footer { background-color: var(--color-verde-oscuro); color: var(--color-blanco); padding: 45px 20px; font-size: 0.9rem; }
+    footer .fuente-elegante { font-size: 2.3rem; margin-bottom: 6px; }
+    footer p { opacity: 0.85; letter-spacing: 3px; font-weight: 300; }
+
+    @media (min-width: 768px) {
+        .card-grid { grid-template-columns: repeat(3, 1fr); }
+        .rsvp-container { padding: 42px; margin: 0 auto; max-width: 600px; }
+        .timeline { max-width: 620px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        html { scroll-behavior: auto; }
+        *, .animate__animated { animation-duration: 0.001ms !important; animation-iteration-count: 1 !important; transition-duration: 0.001ms !important; }
+        .scroll-cue { animation: none; }
+    }
+</style>
 </head>
 <body>
 
-    <div class="hero">
-        <h2 class="animate__animated animate__fadeInDown">Nuestra Boda</h2>
-        <h1 class="animate__animated animate__zoomIn animate__delay-1s">Edi & Pao</h1>
-        <p class="fecha animate__animated animate__fadeInUp animate__delay-2s">12 . 12 . 2026</p>
-    </div>
+<header class="hero">
+    <p class="eyebrow">Nuestra Boda</p>
+    <h1>Edi & Pao</h1>
+    <p class="fecha">12 . 12 . 2026</p>
+    <a href="#historia" class="scroll-cue" aria-label="Bajar a la siguiente sección">
+        <i class="fa-solid fa-chevron-down" aria-hidden="true"></i>
+    </a>
+</header>
 
-    <div class="countdown-container animate__animated animate__fadeInUp animate__delay-3s">
-        <div class="time-section"><span id="days">00</span><p>Días</p></div>
-        <div class="time-section"><span id="hours">00</span><p>Hrs</p></div>
-        <div class="time-section"><span id="minutes">00</span><p>Min</p></div>
-    </div>
+<div class="countdown-container" role="timer" aria-label="Tiempo restante para la boda">
+    <div class="time-section"><span id="days">00</span><p>Días</p></div>
+    <div class="time-section"><span id="hours">00</span><p>Hrs</p></div>
+    <div class="time-section"><span id="minutes">00</span><p>Min</p></div>
+    <div class="time-section"><span id="seconds">00</span><p>Seg</p></div>
+</div>
 
-    <div class="section">
-        <h2 class="section-title">El Inicio de Nuestro Por Siempre</h2>
+<main>
+    <section class="section" id="historia" aria-labelledby="titulo-historia">
+        <h2 class="section-title" id="titulo-historia">El Inicio de Nuestro Por Siempre</h2>
         <p class="section-subtitle">Una celebración tan íntima como nuestro amor.</p>
-        <p class="texto-historia">Hemos decidido celebrar nuestro gran día de una manera muy especial, rodeados únicamente de las 12 personas que han dejado la huella más profunda en nuestras vidas y en nuestra historia de amor.</p>
-        
-        <img src="boston.png" alt="Edi y Pao" class="imagen-decorativa">
-        
-        <p class="texto-historia">El majestuoso Cañón del Combeima será el escenario perfecto. Queremos que esta microboda sea un refugio de paz, naturaleza y conexión. ¡Su presencia es nuestro mejor regalo!</p>
-    </div>
+        <p class="texto-historia">Hemos decidido celebrar nuestro gran día de una manera muy especial, rodeados únicamente de las personas que han dejado la huella más profunda en nuestras vidas y en nuestra historia de amor.</p>
 
-    <div class="section" style="background-color: var(--color-blanco);">
-        <h2 class="section-title">Coordenadas del Gran Día</h2>
+        <img src="boston.png" alt="Edi y Pao juntos" class="imagen-decorativa" loading="lazy" width="480" height="600">
+
+        <p class="texto-historia">El majestuoso Cañón del Combeima será el escenario perfecto. Queremos que esta microboda sea un refugio de paz, naturaleza y conexión. ¡Su presencia es nuestro mejor regalo!</p>
+    </section>
+
+    <section class="section" style="background-color: var(--color-blanco);" aria-labelledby="titulo-coordenadas">
+        <h2 class="section-title" id="titulo-coordenadas">Coordenadas del Gran Día</h2>
         <div class="card-grid">
             <div class="card">
-                <i class="fa-solid fa-map-location-dot"></i>
+                <i class="fa-solid fa-map-location-dot" aria-hidden="true"></i>
                 <h3>Lugar</h3>
-                <p style="font-weight: 600; color: var(--color-texto);">Hotel Iguaima</p>
+                <p class="dato">Hotel Iguaima</p>
                 <p>Cañón del Combeima<br>Ibagué, Tolima</p>
-                <a href="https://maps.google.com/?q=Hotel+Iguaima+Ibague" target="_blank" class="btn" style="padding: 10px 20px; font-size:0.8rem;">Ver Mapa</a>
+                <div class="mapa-wrap">
+                    <iframe
+                        src="https://www.google.com/maps?q=Hotel+Iguaima+Ibague&output=embed"
+                        title="Mapa del Hotel Iguaima, Ibagué"
+                        loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+                <a href="https://maps.google.com/?q=Hotel+Iguaima+Ibague" target="_blank" rel="noopener" class="btn" style="padding: 12px 18px; font-size:0.78rem;">
+                    <i class="fa-solid fa-diamond-turn-right" aria-hidden="true"></i> Cómo llegar
+                </a>
             </div>
             <div class="card">
-                <i class="fa-solid fa-bed"></i>
+                <i class="fa-solid fa-bed" aria-hidden="true"></i>
                 <h3>Hospedaje Especial</h3>
                 <p>Queremos que disfrutes sin afanes. Su alojamiento en el hotel para la noche de la boda está completamente cubierto por nosotros.</p>
             </div>
             <div class="card">
-                <i class="fa-solid fa-champagne-glasses"></i>
+                <i class="fa-solid fa-champagne-glasses" aria-hidden="true"></i>
                 <h3>Dress Code</h3>
-                <p style="font-weight: 600; color: var(--color-texto);">Cóctel / Formal de Día</p>
+                <p class="dato">Cóctel / Formal de Día</p>
                 <p>Estilo bohemio y elegante en tonos tierra, verde salvia y neutros.<br><em>(Reserva el blanco para la novia).</em></p>
             </div>
         </div>
-    </div>
+        <div style="margin-top: 40px;">
+            <a href="#" id="btn-calendario" class="btn btn-secundario" style="max-width: 320px;">
+                <i class="fa-regular fa-calendar-plus" aria-hidden="true"></i> Agregar al calendario
+            </a>
+        </div>
+    </section>
 
-    <div class="section">
-        <h2 class="section-title">El Itinerario</h2>
-        <div class="timeline">
-            <div class="timeline-item">
-                <i class="fa-solid fa-tree"></i>
+    <section class="section" aria-labelledby="titulo-itinerario">
+        <h2 class="section-title" id="titulo-itinerario">El Itinerario</h2>
+        <ol class="timeline">
+            <li class="timeline-item">
+                <i class="fa-solid fa-tree" aria-hidden="true"></i>
                 <div class="timeline-time">3:00 P.M.</div>
                 <div class="timeline-content">
                     <h4 class="fuente-elegante">Recepción y Bienvenida</h4>
                     <p>Llegada a las instalaciones, bebidas y firma en nuestro árbol de huellas.</p>
                 </div>
-            </div>
-            <div class="timeline-item">
-                <i class="fa-solid fa-ring"></i>
+            </li>
+            <li class="timeline-item">
+                <i class="fa-solid fa-ring" aria-hidden="true"></i>
                 <div class="timeline-time">3:30 P.M.</div>
                 <div class="timeline-content">
                     <h4 class="fuente-elegante">Ceremonia al Aire Libre</h4>
                     <p>El momento del "Sí, acepto" en el cañón.</p>
                 </div>
-            </div>
-            <div class="timeline-item">
-                <i class="fa-solid fa-martini-glass-citrus"></i>
+            </li>
+            <li class="timeline-item">
+                <i class="fa-solid fa-martini-glass-citrus" aria-hidden="true"></i>
                 <div class="timeline-time">4:00 P.M.</div>
                 <div class="timeline-content">
                     <h4 class="fuente-elegante">Cócteles y Memorias</h4>
                     <p>Brindis al atardecer y sesión fotográfica.</p>
                 </div>
-            </div>
-            <div class="timeline-item">
-                <i class="fa-solid fa-utensils"></i>
+            </li>
+            <li class="timeline-item">
+                <i class="fa-solid fa-utensils" aria-hidden="true"></i>
                 <div class="timeline-time">6:00 P.M.</div>
                 <div class="timeline-content">
                     <h4 class="fuente-elegante">Banquete y Celebración</h4>
                     <p>Cena íntima, corte de pastel e inicio de la noche.</p>
                 </div>
-            </div>
-        </div>
-    </div>
+            </li>
+        </ol>
+    </section>
 
-    <div class="section" style="background-color: #EFECE5;">
-        <h2 class="section-title">R.S.V.P</h2>
-        <p class="section-subtitle">Confirma tu asistencia antes del 15 de Noviembre de 2026.</p>
-        
+    <section class="section" style="background-color: var(--color-fondo-alt);" aria-labelledby="titulo-rsvp">
+        <h2 class="section-title" id="titulo-rsvp">R.S.V.P</h2>
+        <p class="section-subtitle">Confirma tu asistencia antes del 15 de noviembre de 2026.</p>
+
         <div class="rsvp-container" id="rsvp-modulo">
             <div id="login-section">
                 <p style="margin-bottom: 15px; font-size:0.95rem;">Ingresa el código personal de tu invitación:</p>
-                <input type="text" id="codigo-acceso" placeholder="Ej: ABC12" style="text-align: center; font-size: 1.2rem; text-transform: uppercase; margin-bottom: 15px;">
-                <button class="btn" onclick="validarCodigo()">Validar Código</button>
-                <p id="error-mensaje" style="color: red; margin-top: 10px; font-size: 0.9rem;" class="oculto">Código no válido. Intenta de nuevo.</p>
+                <label for="codigo-acceso" class="oculto">Código de invitación</label>
+                <input
+                    type="text"
+                    id="codigo-acceso"
+                    placeholder="Ej: ABC12"
+                    autocomplete="off"
+                    autocapitalize="characters"
+                    maxlength="10"
+                    inputmode="text"
+                    style="text-align: center; font-size: 1.2rem; text-transform: uppercase; margin-bottom: 15px;">
+                <button type="button" class="btn" id="btn-validar">Validar Código</button>
+                <p id="error-mensaje" class="mensaje-error oculto" role="alert">
+                    <i class="fa-solid fa-circle-exclamation" aria-hidden="true"></i> Código no válido. Intenta de nuevo.
+                </p>
             </div>
 
-            <form id="formulario-confirmacion" class="oculto" onsubmit="event.preventDefault(); enviarDatos();">
+            <form id="formulario-confirmacion" class="oculto" novalidate>
                 <div class="mensaje-bienvenida" id="saludo-invitado">¡Hola!</div>
                 <input type="hidden" id="nombre-interno" name="Nombre">
+                <input type="hidden" id="codigo-interno" name="Codigo">
 
                 <div>
                     <label for="asistencia">¿Nos acompañarás?</label>
-                    <select id="asistencia" name="Asistencia" required onchange="togglePases()">
+                    <select id="asistencia" name="Asistencia" required>
                         <option value="">Selecciona una opción...</option>
                         <option value="Sí, asistiré">¡Sí, ahí estaré!</option>
                         <option value="No asistiré">No podré asistir</option>
@@ -238,7 +387,7 @@
                 </div>
 
                 <div>
-                    <label for="hospedaje">¿Te hospedarás en el hotel Iguaima?</label>
+                    <label for="hospedaje">¿Te hospedarás en el Hotel Iguaima?</label>
                     <select id="hospedaje" name="Hospedaje" required>
                         <option value="">Selecciona una opción...</option>
                         <option value="Sí, me quedaré a dormir">Sí, aprovecharé el hospedaje</option>
@@ -248,113 +397,216 @@
                 </div>
 
                 <div>
-                    <label for="menu">Restricciones alimentarias (Alergias/Dietas):</label>
-                    <textarea id="menu" name="Restricciones" rows="3" placeholder="Ej: Soy vegetariano, alergia a los mariscos... (Escribe 'Ninguna' si no tienes)"></textarea>
+                    <label for="menu">Restricciones alimentarias (alergias/dietas):</label>
+                    <textarea id="menu" name="Restricciones" rows="3" placeholder="Ej: Soy vegetariano, alergia a los mariscos... (escribe 'Ninguna' si no tienes)"></textarea>
                 </div>
+
+                <p class="mensaje-estado mensaje-error oculto" id="form-error" role="alert"></p>
 
                 <button type="submit" id="btn-submit" class="btn">Confirmar Asistencia</button>
             </form>
         </div>
-    </div>
+    </section>
+</main>
 
-    <footer>
-        <h2 class="fuente-elegante" style="font-size: 2.5rem; margin-bottom: 5px;">Edi & Pao</h2>
-        <p style="letter-spacing: 3px; font-weight: 300;">12 . 12 . 2026</p>
-    </footer>
+<footer>
+    <h2 class="fuente-elegante">Edi & Pao</h2>
+    <p>12 . 12 . 2026</p>
+</footer>
 
-    <script>
-        /* ====================================================
-           1. CONFIGURACIÓN DE LA BASE DE DATOS LOCAL (OFICIAL)
-           ==================================================== */
-        const listaInvitados = {
-            "HENRYENE": { nombre: "Henry y Eneidy", cupos: 2 },
-            "STIVENC": { nombre: "Stiven Castañeda", cupos: 1 },
-            "MARTHAB": { nombre: "Martha Barrios", cupos: 1 },
-            "ANGELAJ": { nombre: "Angela y Javier", cupos: 2 },
-            "ELEROS": { nombre: "Eleazar y Rosario", cupos: 2 },
-            "ROBFAR": { nombre: "Robel y Farly", cupos: 2 },
-            "CAMKEV": { nombre: "Camenza y Kevin", cupos: 2 }
+<script>
+(function () {
+    "use strict";
+
+    /* ====================================================
+       1. BASE DE DATOS LOCAL DE INVITADOS
+       ==================================================== */
+    const listaInvitados = {
+        "HENRYENE": { nombre: "Henry y Eneidy", cupos: 2 },
+        "STIVENC":  { nombre: "Stiven Castañeda", cupos: 1 },
+        "MARTHAB":  { nombre: "Martha Barrios", cupos: 1 },
+        "ANGELAJ":  { nombre: "Angela y Javier", cupos: 2 },
+        "ELEROS":   { nombre: "Eleazar y Rosario", cupos: 2 },
+        "ROBFAR":   { nombre: "Robel y Farly", cupos: 2 },
+        "CAMKEV":   { nombre: "Camenza y Kevin", cupos: 2 }
+    };
+
+    /* ====================================================
+       2. URL DEL GOOGLE APPS SCRIPT
+       Reemplaza el texto entre comillas con la URL publicada
+       de tu Apps Script (Implementar > Nueva implementación).
+       ==================================================== */
+    const SCRIPT_URL = 'AQUI_PEGA_TU_URL_DE_APPS_SCRIPT';
+
+    /* ====================================================
+       3. CONTADOR REGRESIVO
+       ==================================================== */
+    const weddingDate = new Date("2026-12-12T15:00:00-05:00").getTime();
+    const elDias = document.getElementById("days");
+    const elHoras = document.getElementById("hours");
+    const elMinutos = document.getElementById("minutes");
+    const elSegundos = document.getElementById("seconds");
+
+    function actualizarContador() {
+        const ahora = Date.now();
+        const distancia = weddingDate - ahora;
+
+        if (distancia <= 0) {
+            elDias.textContent = "00";
+            elHoras.textContent = "00";
+            elMinutos.textContent = "00";
+            elSegundos.textContent = "00";
+            return;
+        }
+
+        elDias.textContent = String(Math.floor(distancia / 86400000)).padStart(2, '0');
+        elHoras.textContent = String(Math.floor((distancia % 86400000) / 3600000)).padStart(2, '0');
+        elMinutos.textContent = String(Math.floor((distancia % 3600000) / 60000)).padStart(2, '0');
+        elSegundos.textContent = String(Math.floor((distancia % 60000) / 1000)).padStart(2, '0');
+    }
+    actualizarContador();
+    setInterval(actualizarContador, 1000);
+
+    /* ====================================================
+       4. AGREGAR AL CALENDARIO (.ics, sin dependencias)
+       ==================================================== */
+    const btnCalendario = document.getElementById('btn-calendario');
+    btnCalendario.addEventListener('click', function (e) {
+        e.preventDefault();
+        const icsContent = [
+            'BEGIN:VCALENDAR',
+            'VERSION:2.0',
+            'PRODID:-//Boda Edi & Pao//ES',
+            'BEGIN:VEVENT',
+            'UID:' + Date.now() + '@boda-edipao',
+            'DTSTAMP:20260101T000000Z',
+            'DTSTART:20261212T200000Z',
+            'DTEND:20261213T030000Z',
+            'SUMMARY:Boda de Edi & Pao',
+            'DESCRIPTION:Ceremonia y celebración en el Hotel Iguaima, Cañón del Combeima, Ibagué.',
+            'LOCATION:Hotel Iguaima, Cañón del Combeima, Ibagué, Tolima',
+            'END:VEVENT',
+            'END:VCALENDAR'
+        ].join('\r\n');
+
+        const blob = new Blob([icsContent], { type: 'text/calendar;charset=utf-8' });
+        const url = URL.createObjectURL(blob);
+        const enlace = document.createElement('a');
+        enlace.href = url;
+        enlace.download = 'boda-edi-pao.ics';
+        document.body.appendChild(enlace);
+        enlace.click();
+        document.body.removeChild(enlace);
+        URL.revokeObjectURL(url);
+    });
+
+    /* ====================================================
+       5. LÓGICA DEL FORMULARIO RSVP
+       ==================================================== */
+    const inputCodigo = document.getElementById('codigo-acceso');
+    const errorMensaje = document.getElementById('error-mensaje');
+    const loginSection = document.getElementById('login-section');
+    const formulario = document.getElementById('formulario-confirmacion');
+    const asistenciaSelect = document.getElementById('asistencia');
+    const divPases = document.getElementById('div-pases');
+    const selectPases = document.getElementById('numero-pases');
+    const btnSubmit = document.getElementById('btn-submit');
+    const formError = document.getElementById('form-error');
+
+    function validarCodigo() {
+        const codigo = inputCodigo.value.toUpperCase().trim();
+        const invitado = listaInvitados[codigo];
+
+        if (!invitado) {
+            errorMensaje.classList.remove('oculto');
+            inputCodigo.setAttribute('aria-invalid', 'true');
+            return;
+        }
+
+        errorMensaje.classList.add('oculto');
+        loginSection.classList.add('oculto');
+        formulario.classList.remove('oculto');
+
+        document.getElementById('saludo-invitado').textContent = `¡Bienvenido(a), ${invitado.nombre}!`;
+        document.getElementById('nombre-interno').value = invitado.nombre;
+        document.getElementById('codigo-interno').value = codigo;
+        document.getElementById('max-pases').textContent = invitado.cupos;
+
+        selectPases.innerHTML = '';
+        for (let i = 1; i <= invitado.cupos; i++) {
+            const opcion = document.createElement('option');
+            opcion.value = String(i);
+            opcion.textContent = i === 1 ? '1 persona' : `${i} personas`;
+            selectPases.appendChild(opcion);
+        }
+
+        formulario.querySelector('select, input, textarea')?.focus();
+    }
+
+    document.getElementById('btn-validar').addEventListener('click', validarCodigo);
+    inputCodigo.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter') { e.preventDefault(); validarCodigo(); }
+    });
+
+    asistenciaSelect.addEventListener('change', function () {
+        if (this.value === "Sí, asistiré") divPases.classList.remove('oculto');
+        else divPases.classList.add('oculto');
+    });
+
+    formulario.addEventListener('submit', function (e) {
+        e.preventDefault();
+        formError.classList.add('oculto');
+
+        if (!asistenciaSelect.value || !document.getElementById('hospedaje').value) {
+            formError.textContent = 'Por favor completa todos los campos obligatorios.';
+            formError.classList.remove('oculto');
+            return;
+        }
+
+        if (SCRIPT_URL.includes('AQUI_PEGA_TU_URL')) {
+            formError.textContent = 'El formulario aún no está conectado. Contacta a los novios directamente por ahora.';
+            formError.classList.remove('oculto');
+            return;
+        }
+
+        btnSubmit.textContent = "Enviando...";
+        btnSubmit.disabled = true;
+
+        const datos = {
+            codigo: document.getElementById('codigo-interno').value,
+            nombre: document.getElementById('nombre-interno').value,
+            asistencia: asistenciaSelect.value,
+            asistentes: asistenciaSelect.value === 'Sí, asistiré' ? selectPases.value : 0,
+            hospedaje: document.getElementById('hospedaje').value,
+            restricciones: document.getElementById('menu').value.trim() || 'Ninguna'
         };
 
-        /* ====================================================
-           2. API DE GOOGLE SHEETS
-           Reemplaza el texto entre comillas con tu URL de Apps Script
-           ==================================================== */
-        const SCRIPT_URL = 'AQUI_PEGA_TU_URL_DE_APPS_SCRIPT'; 
-
-        // Configuración del contador
-        const weddingDate = new Date("Dec 12, 2026 15:00:00").getTime();
-        const timer = setInterval(function() {
-            const now = new Date().getTime();
-            const distance = weddingDate - now;
-            document.getElementById("days").innerText = Math.floor(distance / (1000 * 60 * 60 * 24)).toString().padStart(2, '0');
-            document.getElementById("hours").innerText = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)).toString().padStart(2, '0');
-            document.getElementById("minutes").innerText = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60)).toString().padStart(2, '0');
-            if (distance < 0) clearInterval(timer);
-        }, 1000);
-
-        // Lógica del Formulario
-        function validarCodigo() {
-            const inputCodigo = document.getElementById('codigo-acceso').value.toUpperCase().trim();
-            const invitado = listaInvitados[inputCodigo];
-            
-            if (invitado) {
-                document.getElementById('login-section').classList.add('oculto');
-                document.getElementById('formulario-confirmacion').classList.remove('oculto');
-                document.getElementById('saludo-invitado').innerText = `¡Bienvenido(a), ${invitado.nombre}!`;
-                document.getElementById('nombre-interno').value = invitado.nombre;
-                document.getElementById('max-pases').innerText = invitado.cupos;
-
-                const selectPases = document.getElementById('numero-pases');
-                selectPases.innerHTML = ''; 
-                for (let i = 1; i <= invitado.cupos; i++) {
-                    const option = document.createElement('option');
-                    option.value = i;
-                    option.text = i === 1 ? '1 persona' : `${i} personas`;
-                    selectPases.appendChild(option);
-                }
-            } else {
-                document.getElementById('error-mensaje').classList.remove('oculto');
-            }
-        }
-
-        function togglePases() {
-            const asistencia = document.getElementById('asistencia').value;
-            const divPases = document.getElementById('div-pases');
-            if (asistencia === "Sí, asistiré") divPases.classList.remove('oculto');
-            else divPases.classList.add('oculto');
-        }
-
-        function enviarDatos() {
-            const btnSubmit = document.getElementById('btn-submit');
-            btnSubmit.innerText = "Enviando...";
-            btnSubmit.disabled = true;
-
-            const data = {
-                codigo: document.getElementById('codigo-acceso').value.toUpperCase().trim(),
-                nombre: document.getElementById('nombre-interno').value,
-                asistencia: document.getElementById('asistencia').value,
-                asistentes: document.getElementById('asistencia').value === 'Sí, asistiré' ? document.getElementById('numero-pases').value : 0,
-                hospedaje: document.getElementById('hospedaje').value,
-                restricciones: document.getElementById('menu').value
-            };
-
-            fetch(SCRIPT_URL, {
-                method: 'POST',
-                body: JSON.stringify(data),
-                headers: { 'Content-Type': 'text/plain;charset=utf-8' }
-            })
-            .then(response => response.json())
-            .then(data => {
-                document.getElementById('rsvp-modulo').innerHTML = "<div style='text-align:center; padding: 30px;'><h3 style='color: var(--color-verde); font-family: Playfair Display; font-size:2rem; margin-bottom:15px;'>¡Gracias!</h3><p style='font-size:1.1rem;'>Tu confirmación ha sido recibida con éxito.</p></div>";
-            })
-            .catch(error => {
-                console.error('Error:', error);
-                alert("Hubo un error al enviar. Por favor intenta de nuevo.");
-                btnSubmit.innerText = "Confirmar Asistencia";
-                btnSubmit.disabled = false;
-            });
-        }
-    </script>
+        fetch(SCRIPT_URL, {
+            method: 'POST',
+            body: JSON.stringify(datos),
+            headers: { 'Content-Type': 'text/plain;charset=utf-8' }
+        })
+        .then(function (respuesta) {
+            if (!respuesta.ok) throw new Error('Respuesta no válida del servidor');
+            return respuesta.json().catch(function () { return {}; });
+        })
+        .then(function () {
+            document.getElementById('rsvp-modulo').innerHTML =
+                '<div class="confirmacion-final">' +
+                '<i class="fa-solid fa-circle-check" aria-hidden="true"></i>' +
+                '<h3 class="fuente-elegante">¡Gracias!</h3>' +
+                '<p>Tu confirmación ha sido recibida con éxito. ¡Nos vemos el 12 de diciembre!</p>' +
+                '</div>';
+        })
+        .catch(function (error) {
+            console.error('Error al enviar RSVP:', error);
+            formError.textContent = 'Hubo un problema al enviar tu confirmación. Por favor intenta de nuevo.';
+            formError.classList.remove('oculto');
+            btnSubmit.textContent = "Confirmar Asistencia";
+            btnSubmit.disabled = false;
+        });
+    });
+})();
+</script>
 </body>
 </html>
