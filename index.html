@@ -43,9 +43,8 @@
             align-items: center;
             color: var(--color-blanco);
             padding: 20px;
-            /* Aquí vinculamos la imagen local desde tu GitHub o carpeta */
             background: linear-gradient(rgba(45, 58, 48, 0.4), rgba(45, 58, 48, 0.6)), 
-                        url('ChatGPT Image 6 jul 2026, 07_30_01 a.m..png') no-repeat center center/cover;
+                        url('Imageboston.png') no-repeat center center/cover;
         }
 
         .hero h2 { font-size: 1.5rem; font-style: italic; font-weight: 300; margin-bottom: 15px; letter-spacing: 1px; }
@@ -141,7 +140,7 @@
         <p class="section-subtitle">Una celebración tan íntima como nuestro amor.</p>
         <p class="texto-historia">Hemos decidido celebrar nuestro gran día de una manera muy especial, rodeados únicamente de las 12 personas que han dejado la huella más profunda en nuestras vidas y en nuestra historia de amor.</p>
         
-        <img src="ChatGPT Image 6 jul 2026, 07_30_01 a.m..png" alt="Edi y Pao" class="imagen-decorativa">
+        <img src="Imageboston.png" alt="Edi y Pao" class="imagen-decorativa">
         
         <p class="texto-historia">El majestuoso Cañón del Combeima será el escenario perfecto. Queremos que esta microboda sea un refugio de paz, naturaleza y conexión. ¡Su presencia es nuestro mejor regalo!</p>
     </div>
@@ -215,7 +214,7 @@
         <div class="rsvp-container" id="rsvp-modulo">
             <div id="login-section">
                 <p style="margin-bottom: 15px; font-size:0.95rem;">Ingresa el código personal de tu invitación:</p>
-                <input type="text" id="codigo-acceso" placeholder="Ej: PAO123" style="text-align: center; font-size: 1.2rem; text-transform: uppercase; margin-bottom: 15px;">
+                <input type="text" id="codigo-acceso" placeholder="Ej: ABC12" style="text-align: center; font-size: 1.2rem; text-transform: uppercase; margin-bottom: 15px;">
                 <button class="btn" onclick="validarCodigo()">Validar Código</button>
                 <p id="error-mensaje" style="color: red; margin-top: 10px; font-size: 0.9rem;" class="oculto">Código no válido. Intenta de nuevo.</p>
             </div>
@@ -250,7 +249,7 @@
 
                 <div>
                     <label for="menu">Restricciones alimentarias (Alergias/Dietas):</label>
-                    <textarea id="menu" name="Restricciones" rows="3" placeholder="Ej: Soy vegetariano, alergia a los mariscos..."></textarea>
+                    <textarea id="menu" name="Restricciones" rows="3" placeholder="Ej: Soy vegetariano, alergia a los mariscos... (Escribe 'Ninguna' si no tienes)"></textarea>
                 </div>
 
                 <button type="submit" id="btn-submit" class="btn">Confirmar Asistencia</button>
@@ -265,14 +264,16 @@
 
     <script>
         /* ====================================================
-           1. CONFIGURACIÓN DE LA BASE DE DATOS LOCAL
-           Aquí defines los códigos de tus invitados
+           1. CONFIGURACIÓN DE LA BASE DE DATOS LOCAL (OFICIAL)
            ==================================================== */
         const listaInvitados = {
-            "FAMILIA01": { nombre: "Familia Castañeda", cupos: 4 },
-            "TESTIGO01": { nombre: "Juan Carlos y Pareja", cupos: 2 },
-            "MAMAPAO": { nombre: "Mamá de Pao", cupos: 1 },
-            "AMIGO01": { nombre: "Andrés", cupos: 1 }
+            "HENRYENE": { nombre: "Henry y Eneidy", cupos: 2 },
+            "STIVENC": { nombre: "Stiven Castañeda", cupos: 1 },
+            "MARTHAB": { nombre: "Martha Barrios", cupos: 1 },
+            "ANGELAJ": { nombre: "Angela y Javier", cupos: 2 },
+            "ELEROS": { nombre: "Eleazar y Rosario", cupos: 2 },
+            "ROBFAR": { nombre: "Robel y Farly", cupos: 2 },
+            "CAMKEV": { nombre: "Camenza y Kevin", cupos: 2 }
         };
 
         /* ====================================================
@@ -338,11 +339,10 @@
                 restricciones: document.getElementById('menu').value
             };
 
-            // Enviar a Google Sheets usando fetch API
             fetch(SCRIPT_URL, {
                 method: 'POST',
                 body: JSON.stringify(data),
-                headers: { 'Content-Type': 'text/plain;charset=utf-8' } // 'text/plain' evita el bloqueo de CORS de Google
+                headers: { 'Content-Type': 'text/plain;charset=utf-8' }
             })
             .then(response => response.json())
             .then(data => {
