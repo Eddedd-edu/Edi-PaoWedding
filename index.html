@@ -7,7 +7,6 @@
 <meta name="description" content="Acompáñanos a celebrar la boda de Edi y Pao el 12 de diciembre de 2026 en el Cañón del Combeima, Ibagué. Confirma tu asistencia aquí.">
 <meta name="theme-color" content="#7B8E72">
 
-<!-- Open Graph / redes sociales -->
 <meta property="og:title" content="Edi & Pao · Nos Casamos">
 <meta property="og:description" content="12 de diciembre de 2026 · Hotel Iguaima, Cañón del Combeima, Ibagué">
 <meta property="og:type" content="website">
@@ -422,13 +421,13 @@
        1. BASE DE DATOS LOCAL DE INVITADOS
        ==================================================== */
     const listaInvitados = {
-        "HENRYENE": { nombre: "Henry y Eneidy", cupos: 2 },
-        "STIVENC":  { nombre: "Stiven Castañeda", cupos: 1 },
-        "MARTHAB":  { nombre: "Martha Barrios", cupos: 1 },
-        "ANGELAJ":  { nombre: "Angela y Javier", cupos: 2 },
-        "ELEROS":   { nombre: "Eleazar y Rosario", cupos: 2 },
-        "ROBFAR":   { nombre: "Robel y Farly", cupos: 2 },
-        "CAMKEV":   { nombre: "Camenza y Kevin", cupos: 2 }
+        "PAPIYMA": { nombre: "Papá y Má", cupos: 2 },
+        "STIVE":  { nombre: "Stiwar", cupos: 1 },
+        "MAMI":  { nombre: "Mamá", cupos: 1 },
+        "ANGJAV":  { nombre: "Manita y Javi", cupos: 2 },
+        "ELEROS":   { nombre: "Padre y Madre", cupos: 2 },
+        "ROBFAR":   { nombre: "Don Rowel y Tía Farly", cupos: 2 },
+        "CAMKEV":   { nombre: "Tía Camenza y Tió Kevin", cupos: 2 }
     };
 
     /* ====================================================
@@ -501,7 +500,7 @@
     });
 
     /* ====================================================
-       5. LÓGICA DEL FORMULARIO RSVP
+       5. LÓGICA DEL FORMULARIO RSVP CON RESTRICCIÓN DE USO
        ==================================================== */
     const inputCodigo = document.getElementById('codigo-acceso');
     const errorMensaje = document.getElementById('error-mensaje');
@@ -517,12 +516,22 @@
         const codigo = inputCodigo.value.toUpperCase().trim();
         const invitado = listaInvitados[codigo];
 
+        // 1. Validar que el código exista
         if (!invitado) {
+            errorMensaje.innerHTML = '<i class="fa-solid fa-circle-exclamation" aria-hidden="true"></i> Código no válido. Intenta de nuevo.';
             errorMensaje.classList.remove('oculto');
             inputCodigo.setAttribute('aria-invalid', 'true');
             return;
         }
 
+        // 2. Validar que no haya sido usado ya (almacenado localmente)
+        if (localStorage.getItem('rsvp_confirmado_' + codigo)) {
+            errorMensaje.innerHTML = '<i class="fa-solid fa-circle-info" aria-hidden="true"></i> Este código ya fue utilizado para confirmar asistencia.';
+            errorMensaje.classList.remove('oculto');
+            return;
+        }
+
+        // Si pasa las validaciones, mostrar formulario
         errorMensaje.classList.add('oculto');
         loginSection.classList.add('oculto');
         formulario.classList.remove('oculto');
@@ -572,8 +581,9 @@
         btnSubmit.textContent = "Enviando...";
         btnSubmit.disabled = true;
 
+        const codigoUsado = document.getElementById('codigo-interno').value;
         const datos = {
-            codigo: document.getElementById('codigo-interno').value,
+            codigo: codigoUsado,
             nombre: document.getElementById('nombre-interno').value,
             asistencia: asistenciaSelect.value,
             asistentes: asistenciaSelect.value === 'Sí, asistiré' ? selectPases.value : 0,
@@ -591,6 +601,10 @@
             return respuesta.json().catch(function () { return {}; });
         })
         .then(function () {
+            // Guardar en el dispositivo que este código ya fue usado con éxito
+            localStorage.setItem('rsvp_confirmado_' + codigoUsado, 'true');
+
+            // Mostrar mensaje de éxito
             document.getElementById('rsvp-modulo').innerHTML =
                 '<div class="confirmacion-final">' +
                 '<i class="fa-solid fa-circle-check" aria-hidden="true"></i>' +
