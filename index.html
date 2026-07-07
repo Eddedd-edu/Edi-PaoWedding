@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>Edi & Pao | Nos Casamos · 12.12.2026</title>
 <meta name="description" content="Acompáñanos a celebrar la boda de Edi y Pao el 12 de diciembre de 2026 en el Cañón del Combeima, Ibagué. Confirma tu asistencia aquí.">
 <meta name="theme-color" content="#7B8E72">
@@ -33,9 +33,9 @@
         --transicion: 0.35s cubic-bezier(.4,0,.2,1);
     }
 
-    * { box-sizing: border-box; margin: 0; padding: 0; }
+    * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
 
-    html { scroll-behavior: smooth; }
+    html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
 
     body {
         font-family: 'Montserrat', sans-serif;
@@ -45,11 +45,15 @@
         overflow-x: hidden;
         line-height: 1.7;
         -webkit-font-smoothing: antialiased;
+        width: 100%;
+        max-width: 100vw;
     }
 
     h1, h2, h3, .fuente-elegante { font-family: 'Playfair Display', serif; }
 
     a { color: inherit; }
+
+    img { max-width: 100%; height: auto; }
 
     :focus-visible {
         outline: 2px solid var(--color-verde-oscuro);
@@ -70,6 +74,7 @@
     .hero {
         position: relative;
         min-height: 100svh;
+        min-height: 100vh;
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -82,18 +87,19 @@
     }
 
     .hero .eyebrow { font-size: clamp(1rem, 2.6vw, 1.4rem); font-style: italic; font-weight: 300; margin-bottom: 12px; letter-spacing: 2px; }
-    .hero h1 { font-size: clamp(3rem, 11vw, 5.8rem); margin-bottom: 18px; font-weight: 400; letter-spacing: 2px; line-height: 1.05; }
+    .hero h1 { font-size: clamp(2.6rem, 11vw, 5.8rem); margin-bottom: 18px; font-weight: 400; letter-spacing: 2px; line-height: 1.05; word-break: keep-all; }
     .hero .fecha { font-size: clamp(0.85rem, 2vw, 1.1rem); letter-spacing: 4px; text-transform: uppercase; font-weight: 500; border-top: 1px solid rgba(255,255,255,0.6); border-bottom: 1px solid rgba(255,255,255,0.6); padding: 12px 0; margin-top: 6px; }
 
     .scroll-cue {
         position: absolute;
-        bottom: 28px;
+        bottom: max(28px, env(safe-area-inset-bottom));
         left: 50%;
         transform: translateX(-50%);
         color: var(--color-blanco);
         font-size: 1.4rem;
         animation: flotar 2.2s ease-in-out infinite;
         text-decoration: none;
+        padding: 10px;
     }
     @keyframes flotar {
         0%, 100% { transform: translate(-50%, 0); opacity: 0.7; }
@@ -103,7 +109,7 @@
     /* --- Contador --- */
     .countdown-container {
         background: var(--color-blanco);
-        padding: 25px 10px;
+        padding: 20px 6px;
         width: 92%;
         max-width: 620px;
         margin: -45px auto 40px;
@@ -111,19 +117,21 @@
         box-shadow: var(--sombra-suave);
         display: flex;
         justify-content: space-evenly;
+        align-items: center;
+        gap: 4px;
         position: relative;
         z-index: 10;
     }
 
-    .time-section { text-align: center; flex: 1; }
-    .time-section span { display: block; font-size: clamp(1.6rem, 5.5vw, 2.3rem); font-family: 'Playfair Display', serif; color: var(--color-verde); line-height: 1; margin-bottom: 6px; font-variant-numeric: tabular-nums; }
-    .time-section p { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1px; color: #999; font-weight: 600; }
+    .time-section { text-align: center; flex: 1; min-width: 0; }
+    .time-section span { display: block; font-size: clamp(1.4rem, 6.5vw, 2.3rem); font-family: 'Playfair Display', serif; color: var(--color-verde); line-height: 1; margin-bottom: 6px; font-variant-numeric: tabular-nums; }
+    .time-section p { font-size: clamp(0.6rem, 1.8vw, 0.7rem); text-transform: uppercase; letter-spacing: 1px; color: #999; font-weight: 600; }
 
     /* --- Secciones Generales --- */
-    .section { padding: 70px 20px; max-width: 900px; margin: 0 auto; }
-    .section-title { font-size: clamp(1.9rem, 5vw, 2.6rem); color: var(--color-verde); margin-bottom: 12px; line-height: 1.2; }
-    .section-subtitle { font-size: 1rem; color: #888; margin-bottom: 30px; font-style: italic; }
-    .texto-historia { font-size: 1.05rem; color: var(--color-texto); line-height: 1.85; text-align: justify; text-align-last: center; margin-bottom: 20px; max-width: 640px; margin-inline: auto; }
+    .section { padding: 60px 18px; max-width: 900px; margin: 0 auto; }
+    .section-title { font-size: clamp(1.7rem, 5vw, 2.6rem); color: var(--color-verde); margin-bottom: 12px; line-height: 1.2; }
+    .section-subtitle { font-size: 0.95rem; color: #888; margin-bottom: 30px; font-style: italic; padding: 0 8px; }
+    .texto-historia { font-size: 1rem; color: var(--color-texto); line-height: 1.85; text-align: justify; text-align-last: center; margin-bottom: 20px; max-width: 640px; margin-inline: auto; overflow-wrap: break-word; }
 
     /* --- Imagen Decorativa --- */
     .imagen-decorativa {
@@ -141,18 +149,20 @@
     .card-grid { display: grid; grid-template-columns: 1fr; gap: 22px; margin-top: 40px; }
     .card {
         background: var(--color-blanco);
-        padding: 34px 24px;
+        padding: 30px 20px;
         border-radius: 10px;
         box-shadow: 0 4px 18px rgba(0,0,0,0.05);
         border-bottom: 4px solid var(--color-dorado);
         transition: transform var(--transicion), box-shadow var(--transicion);
+        overflow-wrap: break-word;
     }
     .card:hover, .card:focus-within { transform: translateY(-6px); box-shadow: var(--sombra-suave); }
     .card i { font-size: 2.1rem; color: var(--color-dorado); margin-bottom: 14px; }
-    .card h3 { font-size: 1.35rem; margin-bottom: 10px; color: var(--color-verde); }
+    .card h3 { font-size: 1.3rem; margin-bottom: 10px; color: var(--color-verde); }
     .card p { font-size: 0.95rem; color: #555; }
     .card .dato { font-weight: 600; color: var(--color-texto); margin-bottom: 4px; }
-/* Estilos para las nuevas imágenes dentro de las tarjetas */
+
+    /* Imágenes dentro de las tarjetas */
     .card-img {
         width: 100%;
         height: 140px;
@@ -169,8 +179,10 @@
         border-radius: 6px;
         margin-top: 12px;
         font-weight: 500;
+        text-align: left;
     }
     .horarios-hotel p { margin-bottom: 3px !important; color: inherit; font-size: inherit; }
+
     /* --- Mapa --- */
     .mapa-wrap { border-radius: 10px; overflow: hidden; box-shadow: var(--sombra-suave); margin-top: 12px; }
     .mapa-wrap iframe { width: 100%; height: 260px; border: 0; display: block; }
@@ -178,34 +190,36 @@
     /* --- Itinerario / Cronograma --- */
     .timeline { position: relative; max-width: 100%; margin: 0 auto; text-align: left; padding: 20px 0; }
     .timeline::before { content: ''; position: absolute; left: 24px; top: 6px; bottom: 6px; width: 2px; background: var(--color-verde); opacity: 0.25; }
-    .timeline-item { position: relative; padding-left: 65px; margin-bottom: 32px; }
+    .timeline-item { position: relative; padding-left: 62px; margin-bottom: 32px; }
     .timeline-item:last-child { margin-bottom: 0; }
     .timeline-item i {
         position: absolute; left: 8px; top: -2px;
         background: var(--color-fondo);
         color: var(--color-verde);
-        font-size: 1.3rem; width: 34px; height: 34px;
+        font-size: 1.2rem; width: 34px; height: 34px;
         display: flex; align-items: center; justify-content: center;
         border-radius: 50%;
         border: 1px solid rgba(123,142,114,0.3);
     }
-    .timeline-time { font-weight: 600; color: var(--color-dorado); font-size: 1.05rem; margin-bottom: 4px; letter-spacing: 0.5px; }
-    .timeline-content h4 { font-size: 1.25rem; margin: 0 0 6px 0; color: var(--color-texto); }
-    .timeline-content p { font-size: 0.93rem; color: #666; margin: 0; }
+    .timeline-time { font-weight: 600; color: var(--color-dorado); font-size: 1rem; margin-bottom: 4px; letter-spacing: 0.5px; }
+    .timeline-content h4 { font-size: 1.15rem; margin: 0 0 6px 0; color: var(--color-texto); overflow-wrap: break-word; }
+    .timeline-content p { font-size: 0.92rem; color: #666; margin: 0; overflow-wrap: break-word; }
 
     /* --- Botones --- */
     .btn {
         display: inline-flex; align-items: center; justify-content: center; gap: 8px;
         background-color: var(--color-verde);
         color: var(--color-blanco);
-        padding: 15px 28px;
-        font-weight: 600; letter-spacing: 1px; text-transform: uppercase; font-size: 0.85rem;
+        padding: 15px 22px;
+        min-height: 48px;
+        font-weight: 600; letter-spacing: 1px; text-transform: uppercase; font-size: 0.82rem;
         border-radius: 6px; border: 1px solid var(--color-verde);
         cursor: pointer; text-align: center; width: 100%;
         transition: background-color var(--transicion), transform var(--transicion);
         margin-top: 12px;
         font-family: inherit;
         text-decoration: none;
+        touch-action: manipulation;
     }
     .btn:hover { background-color: var(--color-verde-oscuro); }
     .btn:active { transform: scale(0.98); }
@@ -213,35 +227,46 @@
     .btn-secundario { background-color: transparent; color: var(--color-verde); }
     .btn-secundario:hover { background-color: var(--color-verde); color: var(--color-blanco); }
 
-    .rsvp-container { background: var(--color-blanco); padding: 32px 20px; border-radius: 10px; box-shadow: var(--sombra-suave); text-align: left; }
+    .rsvp-container { background: var(--color-blanco); padding: 28px 18px; border-radius: 10px; box-shadow: var(--sombra-suave); text-align: left; }
     .oculto { display: none !important; }
     #login-section { text-align: center; }
-    .mensaje-bienvenida { color: var(--color-verde); font-family: 'Playfair Display', serif; font-size: 1.45rem; margin-bottom: 18px; text-align: center; }
+    .mensaje-bienvenida { color: var(--color-verde); font-family: 'Playfair Display', serif; font-size: 1.35rem; margin-bottom: 18px; text-align: center; overflow-wrap: break-word; }
 
     form { display: flex; flex-direction: column; gap: 18px; }
     label { font-weight: 600; font-size: 0.88rem; color: var(--color-verde-oscuro); margin-bottom: 6px; display: block; }
+
     input, select, textarea {
         padding: 14px 15px; border: 1px solid #ddd; border-radius: 6px;
-        font-family: 'Montserrat', sans-serif; font-size: 1rem; width: 100%;
+        font-family: 'Montserrat', sans-serif; font-size: 16px; width: 100%;
         background-color: #fafafa; appearance: none;
         transition: border-color var(--transicion);
+        min-height: 48px;
     }
     input:focus, select:focus, textarea:focus { border-color: var(--color-verde); }
-    textarea { resize: vertical; min-height: 80px; }
+    textarea { resize: vertical; min-height: 90px; }
+
+    select {
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='%237B8E72'%3E%3Cpath fill-rule='evenodd' d='M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z' clip-rule='evenodd'/%3E%3C/svg%3E");
+        background-repeat: no-repeat;
+        background-position: right 14px center;
+        background-size: 16px;
+        padding-right: 40px;
+    }
 
     .mensaje-error {
         color: #b3402e; margin-top: 10px; font-size: 0.88rem;
         display: flex; align-items: center; justify-content: center; gap: 6px;
+        text-align: center;
     }
     .mensaje-estado[aria-live] { min-height: 1.2em; }
 
     .confirmacion-final { text-align: center; padding: 20px 10px; }
     .confirmacion-final i { font-size: 2.6rem; color: var(--color-verde); margin-bottom: 14px; }
-    .confirmacion-final h3 { color: var(--color-verde); font-size: 1.9rem; margin-bottom: 12px; }
+    .confirmacion-final h3 { color: var(--color-verde); font-size: 1.8rem; margin-bottom: 12px; }
 
     /* --- Footer --- */
     footer { background-color: var(--color-verde-oscuro); color: var(--color-blanco); padding: 45px 20px; font-size: 0.9rem; }
-    footer .fuente-elegante { font-size: 2.3rem; margin-bottom: 6px; }
+    footer .fuente-elegante { font-size: 2.1rem; margin-bottom: 6px; }
     footer p { opacity: 0.85; letter-spacing: 3px; font-weight: 300; }
 
     /* --- GALERÍA DE RECUERDOS --- */
@@ -250,7 +275,7 @@
     }
     .album-card {
         background: var(--color-blanco);
-        padding: 40px 20px;
+        padding: 36px 18px;
         border-radius: 12px;
         box-shadow: var(--sombra-suave);
         border-bottom: 4px solid var(--color-dorado);
@@ -260,13 +285,42 @@
     }
     .album-card:hover { transform: translateY(-4px); box-shadow: 0 15px 40px rgba(62,62,62,0.12); }
     .album-card i.fa-google { font-size: 2.8rem; color: var(--color-dorado); margin-bottom: 18px; display: block; }
-    .album-card h3 { color: var(--color-verde); margin-bottom: 12px; font-size: 1.5rem; }
+    .album-card h3 { color: var(--color-verde); margin-bottom: 12px; font-size: 1.4rem; }
     .album-card p { color: #666; font-size: 0.95rem; margin-bottom: 25px; line-height: 1.6; }
+
+    /* --- Modal Dress Code --- */
+    #modal-dress-code {
+        display: none; position: fixed; z-index: 1000; padding: 40px 16px;
+        left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.85);
+        cursor: zoom-out; overflow-y: auto;
+    }
+    #modal-dress-code img {
+        margin: auto; display: block; width: 100%; max-width: 700px;
+        border-radius: 4px; animation: zoomIn 0.3s;
+    }
+    #modal-close {
+        position: fixed; top: max(16px, env(safe-area-inset-top)); right: 16px;
+        color: #fff; font-size: 2rem; line-height: 1; background: none; border: none;
+        cursor: pointer; z-index: 1001; padding: 8px;
+    }
+    @keyframes zoomIn { from { transform: scale(0.5); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+
+    @media (min-width: 600px) {
+        .card-grid { grid-template-columns: repeat(2, 1fr); }
+    }
 
     @media (min-width: 768px) {
         .card-grid { grid-template-columns: repeat(3, 1fr); }
         .rsvp-container { padding: 42px; margin: 0 auto; max-width: 600px; }
         .timeline { max-width: 620px; }
+        .btn { width: auto; }
+        #btn-calendario, #btn-validar, #btn-submit { width: 100%; }
+    }
+
+    @media (max-width: 380px) {
+        .section { padding: 50px 14px; }
+        .hero h1 { letter-spacing: 1px; }
+        .countdown-container { padding: 16px 4px; }
     }
 
     @media (prefers-reduced-motion: reduce) {
@@ -274,17 +328,6 @@
         *, .animate__animated { animation-duration: 0.001ms !important; animation-iteration-count: 1 !important; transition-duration: 0.001ms !important; }
         .scroll-cue { animation: none; }
     }
-  /* Estilos para el modal de pantalla completa */
-    #modal-dress-code {
-        display: none; position: fixed; z-index: 1000; padding-top: 50px;
-        left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.85);
-        cursor: zoom-out;
-    }
-    #modal-dress-code img {
-        margin: auto; display: block; width: 80%; max-width: 700px;
-        border-radius: 4px; animation: zoomIn 0.3s;
-    }
-    @keyframes zoomIn { from { transform: scale(0.5); } to { transform: scale(1); } }
 </style>
 </head>
 <body>
@@ -338,11 +381,11 @@
             <div class="card">
                 <i class="fa-solid fa-bed" aria-hidden="true"></i>
                 <h3>Hospedaje Especial</h3>
-                
+
                 <img src="hotel-iguaima.jpg" alt="Cabañas del Hotel Iguaima" class="card-img" loading="lazy">
-                
+
                 <p>Queremos que disfrutes sin afanes. Su alojamiento en el hotel para la noche de la boda está completamente cubierto por nosotros.</p>
-                
+
                 <div class="horarios-hotel">
                     <p><i class="fa-solid fa-clock"></i> Check-in: 3:00 P.M.</p>
                     <p><i class="fa-solid fa-clock-rotate-left"></i> Check-out: 11:00 A.M. (Domingo)</p>
@@ -353,19 +396,19 @@
                 <i class="fa-solid fa-champagne-glasses" aria-hidden="true"></i>
                 <h3>Dress Code</h3>
                 <p class="dato">Cóctel / Formal de Día</p>
-                
-                <img src="dress-code.jpg" alt="Ideas de vestimenta" class="card-img" 
+
+                <img src="dress-code.jpg" alt="Ideas de vestimenta" class="card-img"
                      style="cursor: zoom-in;" onclick="abrirModal()">
-                
+
                 <p>Estilo bohemio y elegante en tonos tierra, verde salvia y neutros.<br><em>(Reserva el blanco para la novia).</em></p>
-                
+
                 <button type="button" class="btn btn-secundario" onclick="abrirModal()" style="padding: 10px 15px; font-size: 0.8rem; margin-top: 15px;">
                     <i class="fa-solid fa-expand" aria-hidden="true"></i> Ver en pantalla completa
                 </button>
             </div>
         </div>
         <div style="margin-top: 40px;">
-            <a href="#" id="btn-calendario" class="btn btn-secundario" style="max-width: 320px;">
+            <a href="#" id="btn-calendario" class="btn btn-secundario" style="max-width: 320px; margin-inline: auto;">
                 <i class="fa-regular fa-calendar-plus" aria-hidden="true"></i> Agregar al calendario
             </a>
         </div>
@@ -417,7 +460,7 @@
             <i class="fa-brands fa-google" aria-hidden="true"></i>
             <h3 class="fuente-elegante">Álbum Compartido</h3>
             <p>Sube todos los momentos que captures y revive los de los demás directamente desde tu celular en nuestro álbum de Google Fotos.</p>
-            <a href="https://photos.app.goo.gl/SZXaZDks2SAsxVAWA" target="_blank" rel="noopener" class="btn" style="max-width: 280px; padding: 16px 20px; font-size: 0.9rem;">
+            <a href="https://photos.app.goo.gl/SZXaZDks2SAsxVAWA" target="_blank" rel="noopener" class="btn" style="max-width: 280px; padding: 16px 20px; font-size: 0.9rem; margin-inline: auto;">
                 <i class="fa-solid fa-camera-retro" aria-hidden="true"></i> Ir a Google Fotos
             </a>
         </div>
@@ -492,6 +535,11 @@
     <h2 class="fuente-elegante">Edi & Pao</h2>
     <p>12 . 12 . 2026</p>
 </footer>
+
+<div id="modal-dress-code" role="dialog" aria-modal="true" aria-label="Dress code en pantalla completa">
+    <button type="button" id="modal-close" aria-label="Cerrar">&times;</button>
+    <img src="dress-code.jpg" alt="Dress Code Completo">
+</div>
 
 <script>
 (function () {
@@ -627,7 +675,7 @@
             selectPases.appendChild(opcion);
         }
 
-        formulario.querySelector('select, input, textarea')?.focus();
+        formulario.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
 
     document.getElementById('btn-validar').addEventListener('click', validarCodigo);
@@ -698,16 +746,30 @@
             btnSubmit.disabled = false;
         });
     });
-})();
-  function abrirModal() {
-        document.getElementById('modal-dress-code').style.display = 'block';
-    }
+
+    /* ====================================================
+       6. MODAL DRESS CODE
+       ==================================================== */
+    const modal = document.getElementById('modal-dress-code');
+    const modalClose = document.getElementById('modal-close');
+
+    window.abrirModal = function () {
+        modal.style.display = 'block';
+        document.body.style.overflow = 'hidden';
+    };
     function cerrarModal() {
-        document.getElementById('modal-dress-code').style.display = 'none';
+        modal.style.display = 'none';
+        document.body.style.overflow = '';
     }
+    modal.addEventListener('click', function (e) {
+        if (e.target === modal) cerrarModal();
+    });
+    modalClose.addEventListener('click', cerrarModal);
+    document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && modal.style.display === 'block') cerrarModal();
+    });
+})();
 </script>
-  <div id="modal-dress-code" onclick="cerrarModal()">
-        <img src="dress-code.jpg" alt="Dress Code Completo">
-    </div>
+
 </body>
 </html>
