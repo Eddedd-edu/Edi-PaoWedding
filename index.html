@@ -20,6 +20,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
 <style>
+
     :root {
         --color-fondo: #F9F6F0;
         --color-fondo-alt: #F1ECE2;
@@ -273,6 +274,17 @@
         *, .animate__animated { animation-duration: 0.001ms !important; animation-iteration-count: 1 !important; transition-duration: 0.001ms !important; }
         .scroll-cue { animation: none; }
     }
+  /* Estilos para el modal de pantalla completa */
+    #modal-dress-code {
+        display: none; position: fixed; z-index: 1000; padding-top: 50px;
+        left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.85);
+        cursor: zoom-out;
+    }
+    #modal-dress-code img {
+        margin: auto; display: block; width: 80%; max-width: 700px;
+        border-radius: 4px; animation: zoomIn 0.3s;
+    }
+    @keyframes zoomIn { from { transform: scale(0.5); } to { transform: scale(1); } }
 </style>
 </head>
 <body>
@@ -342,13 +354,14 @@
                 <h3>Dress Code</h3>
                 <p class="dato">Cóctel / Formal de Día</p>
                 
-                <img src="dress-code.jpg" alt="Ideas de vestimenta bohemia" class="card-img" loading="lazy">
+                <img src="dress-code.jpg" alt="Ideas de vestimenta" class="card-img" 
+                     style="cursor: zoom-in;" onclick="abrirModal()">
                 
                 <p>Estilo bohemio y elegante en tonos tierra, verde salvia y neutros.<br><em>(Reserva el blanco para la novia).</em></p>
                 
-                <a href="#" target="_blank" rel="noopener" class="btn btn-secundario" style="padding: 10px 15px; font-size: 0.8rem; margin-top: 15px;">
-                    <i class="fa-brands fa-pinterest" aria-hidden="true"></i> Ver ideas de atuendos
-                </a>
+                <button type="button" class="btn btn-secundario" onclick="abrirModal()" style="padding: 10px 15px; font-size: 0.8rem; margin-top: 15px;">
+                    <i class="fa-solid fa-expand" aria-hidden="true"></i> Ver en pantalla completa
+                </button>
             </div>
         </div>
         <div style="margin-top: 40px;">
@@ -686,6 +699,15 @@
         });
     });
 })();
+  function abrirModal() {
+        document.getElementById('modal-dress-code').style.display = 'block';
+    }
+    function cerrarModal() {
+        document.getElementById('modal-dress-code').style.display = 'none';
+    }
 </script>
+  <div id="modal-dress-code" onclick="cerrarModal()">
+        <img src="dress-code.jpg" alt="Dress Code Completo">
+    </div>
 </body>
 </html>
