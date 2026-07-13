@@ -10,7 +10,7 @@
 <meta property="og:title" content="Edi & Pao · Nos Casamos">
 <meta property="og:description" content="12 de diciembre de 2026 · Hotel Iguaima, Cañón del Combeima, Ibagué">
 <meta property="og:type" content="website">
-<meta property="og:image" content="Head.PNG">
+<meta property="og:image" content="DSC_0714.jpeg">
 
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%8D%83%3C/text%3E%3C/svg%3E">
 
@@ -22,6 +22,11 @@
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
+<audio id="bg-music" loop>
+    <source src="tu-cancion.mp3" type="audio/mpeg">
+    Tu navegador no soporta el audio.
+</audio>
 
 <header class="hero" id="hero-header">
     <p class="eyebrow">Nuestra Boda</p>
@@ -152,6 +157,48 @@
         </div>
     </section>
 
+    <section class="section revelar-elemento" aria-labelledby="titulo-tips">
+        <h2 class="section-title" id="titulo-tips">Detalles a tener en cuenta</h2>
+        <p class="section-subtitle">Tips y respuestas rápidas para que disfrutes al máximo.</p>
+        
+        <div class="card-grid" style="grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); margin-bottom: 50px;">
+            <div class="card">
+                <i class="fa-solid fa-shoe-prints"></i>
+                <h3>Calzado Sugerido</h3>
+                <p>Recomendamos zapatos de tacón grueso, plataformas o calzado plano. ¡Evita los tacones de aguja para no hundirte en el césped!</p>
+            </div>
+            <div class="card">
+                <i class="fa-solid fa-cloud-moon"></i>
+                <h3>Clima en el Cañón</h3>
+                <p>Aunque el día será cálido, la temperatura baja después del atardecer. Te sugerimos llevar una chaqueta ligera o pashmina para la noche.</p>
+            </div>
+        </div>
+
+        <div class="faq-container">
+            <h3 class="fuente-elegante" style="font-size: 1.8rem; margin-bottom: 25px; color: var(--color-verde);">Preguntas Frecuentes</h3>
+            
+            <details class="faq-item">
+                <summary>¿Hay parqueadero en el hotel?</summary>
+                <div class="faq-content">
+                    <p>Sí, el Hotel Iguaima cuenta con zona de parqueadero gratuito y seguro para todos nuestros invitados durante el evento y para quienes se hospedan.</p>
+                </div>
+            </details>
+            
+            <details class="faq-item">
+                <summary>¿Puedo llevar un acompañante extra?</summary>
+                <div class="faq-content">
+                    <p>Hemos diseñado una microboda muy íntima, rodeados solo de nuestro círculo más cercano. Los cupos están estrictamente calculados según lo indicado en el sistema de confirmación. ¡Agradecemos inmensamente tu comprensión!</p>
+                </div>
+            </details>
+            
+            <details class="faq-item">
+                <summary>¿Qué pasa si llueve?</summary>
+                <div class="faq-content">
+                    <p>¡La magia no se detiene! Si el clima no nos favorece, contamos con un hermoso "Plan B" en uno de los salones techados del hotel, manteniendo toda la estética y calidez.</p>
+                </div>
+            </details>
+        </div>
+    </section>
     <section class="section revelar-elemento" style="background-color: var(--color-fondo-alt);" aria-labelledby="titulo-rsvp">
         <h2 class="section-title" id="titulo-rsvp">R.S.V.P</h2>
         <p class="section-subtitle">Confirma tu asistencia antes del 15 de noviembre de 2026.</p>
@@ -226,6 +273,10 @@
     <button type="button" id="modal-close" aria-label="Cerrar">×</button>
     <img src="dress-code.jpg" alt="Dress Code Completo">
 </div>
+
+<button id="btn-musica-flotante" class="btn-musica" aria-label="Reproducir música de fondo">
+    <i class="fa-solid fa-music"></i>
+</button>
 
 <script src="script.js"></script>
 </body>
