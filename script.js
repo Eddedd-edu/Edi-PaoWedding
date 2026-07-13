@@ -54,7 +54,7 @@
     function crearEfectoHojas() {
         if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
         const hero = document.getElementById('hero-header');
-        const iconosHojas = ['🍂', '🍁', '🍃', '💍','🍀','🫧'];
+        const iconosHojas = ['🍂', '🍁', '🍃', '💍','💸'];
         const maxHojas = 12;
 
         for (let i = 0; i < maxHojas; i++) {
