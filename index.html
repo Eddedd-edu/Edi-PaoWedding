@@ -19,320 +19,11 @@
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-<style>
-
-    :root {
-        --color-fondo: #F9F6F0;
-        --color-fondo-alt: #F1ECE2;
-        --color-verde: #7B8E72;
-        --color-verde-oscuro: #58694F;
-        --color-dorado: #C1A68D;
-        --color-texto: #3E3E3E;
-        --color-blanco: #FFFFFF;
-        --sombra-suave: 0 10px 30px rgba(62, 62, 62, 0.08);
-        --transicion: 0.35s cubic-bezier(.4,0,.2,1);
-    }
-
-    * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
-
-    html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
-
-    body {
-        font-family: 'Montserrat', sans-serif;
-        background-color: var(--color-fondo);
-        color: var(--color-texto);
-        text-align: center;
-        overflow-x: hidden;
-        line-height: 1.7;
-        -webkit-font-smoothing: antialiased;
-        width: 100%;
-        max-width: 100vw;
-    }
-
-    h1, h2, h3, .fuente-elegante { font-family: 'Playfair Display', serif; }
-
-    a { color: inherit; }
-
-    img { max-width: 100%; height: auto; }
-
-    :focus-visible {
-        outline: 2px solid var(--color-verde-oscuro);
-        outline-offset: 3px;
-    }
-
-    /* --- Divisor botánico (elemento firma) --- */
-    .divisor {
-        width: 100%;
-        max-width: 220px;
-        margin: 10px auto 0;
-        opacity: 0.75;
-        color: var(--color-dorado);
-    }
-    .divisor svg { width: 100%; height: auto; display: block; }
-
-    /* --- Portada Principal --- */
-    .hero {
-        position: relative;
-        min-height: 100svh;
-        min-height: 100vh;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        color: var(--color-blanco);
-        padding: 20px;
-        background: linear-gradient(rgba(35, 46, 38, 0.45), rgba(35, 46, 38, 0.6)),
-                    url('DSC_0714.jpeg') no-repeat center center/cover;
-        background-attachment: scroll;
-    }
-
-    .hero .eyebrow { font-size: clamp(1rem, 2.6vw, 1.4rem); font-style: italic; font-weight: 300; margin-bottom: 12px; letter-spacing: 2px; }
-    .hero h1 { font-size: clamp(2.6rem, 11vw, 5.8rem); margin-bottom: 18px; font-weight: 400; letter-spacing: 2px; line-height: 1.05; word-break: keep-all; }
-    .hero .fecha { font-size: clamp(0.85rem, 2vw, 1.1rem); letter-spacing: 4px; text-transform: uppercase; font-weight: 500; border-top: 1px solid rgba(255,255,255,0.6); border-bottom: 1px solid rgba(255,255,255,0.6); padding: 12px 0; margin-top: 6px; }
-
-    .scroll-cue {
-        position: absolute;
-        bottom: max(28px, env(safe-area-inset-bottom));
-        left: 50%;
-        transform: translateX(-50%);
-        color: var(--color-blanco);
-        font-size: 1.4rem;
-        animation: flotar 2.2s ease-in-out infinite;
-        text-decoration: none;
-        padding: 10px;
-    }
-    @keyframes flotar {
-        0%, 100% { transform: translate(-50%, 0); opacity: 0.7; }
-        50% { transform: translate(-50%, 10px); opacity: 1; }
-    }
-
-    /* --- Contador --- */
-    .countdown-container {
-        background: var(--color-blanco);
-        padding: 20px 6px;
-        width: 92%;
-        max-width: 620px;
-        margin: -45px auto 40px;
-        border-radius: 10px;
-        box-shadow: var(--sombra-suave);
-        display: flex;
-        justify-content: space-evenly;
-        align-items: center;
-        gap: 4px;
-        position: relative;
-        z-index: 10;
-    }
-
-    .time-section { text-align: center; flex: 1; min-width: 0; }
-    .time-section span { display: block; font-size: clamp(1.4rem, 6.5vw, 2.3rem); font-family: 'Playfair Display', serif; color: var(--color-verde); line-height: 1; margin-bottom: 6px; font-variant-numeric: tabular-nums; }
-    .time-section p { font-size: clamp(0.6rem, 1.8vw, 0.7rem); text-transform: uppercase; letter-spacing: 1px; color: #999; font-weight: 600; }
-
-    /* --- Secciones Generales --- */
-    .section { padding: 60px 18px; max-width: 900px; margin: 0 auto; }
-    .section-title { font-size: clamp(1.7rem, 5vw, 2.6rem); color: var(--color-verde); margin-bottom: 12px; line-height: 1.2; }
-    .section-subtitle { font-size: 0.95rem; color: #888; margin-bottom: 30px; font-style: italic; padding: 0 8px; }
-    .texto-historia { font-size: 1rem; color: var(--color-texto); line-height: 1.85; text-align: justify; text-align-last: center; margin-bottom: 20px; max-width: 640px; margin-inline: auto; overflow-wrap: break-word; }
-
-    /* --- Imagen Decorativa --- */
-    .imagen-decorativa {
-        width: 100%;
-        max-width: 480px;
-        aspect-ratio: 4 / 5;
-        object-fit: cover;
-        border-radius: 160px 160px 12px 12px;
-        margin: 35px auto;
-        display: block;
-        box-shadow: var(--sombra-suave);
-    }
-
-    /* --- Tarjetas (Grid) --- */
-    .card-grid { display: grid; grid-template-columns: 1fr; gap: 22px; margin-top: 40px; }
-    .card {
-        background: var(--color-blanco);
-        padding: 30px 20px;
-        border-radius: 10px;
-        box-shadow: 0 4px 18px rgba(0,0,0,0.05);
-        border-bottom: 4px solid var(--color-dorado);
-        transition: transform var(--transicion), box-shadow var(--transicion);
-        overflow-wrap: break-word;
-    }
-    .card:hover, .card:focus-within { transform: translateY(-6px); box-shadow: var(--sombra-suave); }
-    .card i { font-size: 2.1rem; color: var(--color-dorado); margin-bottom: 14px; }
-    .card h3 { font-size: 1.3rem; margin-bottom: 10px; color: var(--color-verde); }
-    .card p { font-size: 0.95rem; color: #555; }
-    .card .dato { font-weight: 600; color: var(--color-texto); margin-bottom: 4px; }
-
-    /* Imágenes dentro de las tarjetas */
-    .card-img {
-        width: 100%;
-        height: 140px;
-        object-fit: cover;
-        border-radius: 8px;
-        margin: 12px 0;
-        box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-    }
-    .horarios-hotel {
-        font-size: 0.85rem;
-        color: var(--color-verde-oscuro);
-        background: var(--color-fondo-alt);
-        padding: 10px;
-        border-radius: 6px;
-        margin-top: 12px;
-        font-weight: 500;
-        text-align: left;
-    }
-    .horarios-hotel p { margin-bottom: 3px !important; color: inherit; font-size: inherit; }
-
-    /* --- Mapa --- */
-    .mapa-wrap { border-radius: 10px; overflow: hidden; box-shadow: var(--sombra-suave); margin-top: 12px; }
-    .mapa-wrap iframe { width: 100%; height: 260px; border: 0; display: block; }
-
-    /* --- Itinerario / Cronograma --- */
-    .timeline { position: relative; max-width: 100%; margin: 0 auto; text-align: left; padding: 20px 0; }
-    .timeline::before { content: ''; position: absolute; left: 24px; top: 6px; bottom: 6px; width: 2px; background: var(--color-verde); opacity: 0.25; }
-    .timeline-item { position: relative; padding-left: 62px; margin-bottom: 32px; }
-    .timeline-item:last-child { margin-bottom: 0; }
-    .timeline-item i {
-        position: absolute; left: 8px; top: -2px;
-        background: var(--color-fondo);
-        color: var(--color-verde);
-        font-size: 1.2rem; width: 34px; height: 34px;
-        display: flex; align-items: center; justify-content: center;
-        border-radius: 50%;
-        border: 1px solid rgba(123,142,114,0.3);
-    }
-    .timeline-time { font-weight: 600; color: var(--color-dorado); font-size: 1rem; margin-bottom: 4px; letter-spacing: 0.5px; }
-    .timeline-content h4 { font-size: 1.15rem; margin: 0 0 6px 0; color: var(--color-texto); overflow-wrap: break-word; }
-    .timeline-content p { font-size: 0.92rem; color: #666; margin: 0; overflow-wrap: break-word; }
-
-    /* --- Botones --- */
-    .btn {
-        display: inline-flex; align-items: center; justify-content: center; gap: 8px;
-        background-color: var(--color-verde);
-        color: var(--color-blanco);
-        padding: 15px 22px;
-        min-height: 48px;
-        font-weight: 600; letter-spacing: 1px; text-transform: uppercase; font-size: 0.82rem;
-        border-radius: 6px; border: 1px solid var(--color-verde);
-        cursor: pointer; text-align: center; width: 100%;
-        transition: background-color var(--transicion), transform var(--transicion);
-        margin-top: 12px;
-        font-family: inherit;
-        text-decoration: none;
-        touch-action: manipulation;
-    }
-    .btn:hover { background-color: var(--color-verde-oscuro); }
-    .btn:active { transform: scale(0.98); }
-    .btn:disabled { background-color: #b3b3b3; border-color: #b3b3b3; cursor: not-allowed; }
-    .btn-secundario { background-color: transparent; color: var(--color-verde); }
-    .btn-secundario:hover { background-color: var(--color-verde); color: var(--color-blanco); }
-
-    .rsvp-container { background: var(--color-blanco); padding: 28px 18px; border-radius: 10px; box-shadow: var(--sombra-suave); text-align: left; }
-    .oculto { display: none !important; }
-    #login-section { text-align: center; }
-    .mensaje-bienvenida { color: var(--color-verde); font-family: 'Playfair Display', serif; font-size: 1.35rem; margin-bottom: 18px; text-align: center; overflow-wrap: break-word; }
-
-    form { display: flex; flex-direction: column; gap: 18px; }
-    label { font-weight: 600; font-size: 0.88rem; color: var(--color-verde-oscuro); margin-bottom: 6px; display: block; }
-
-    input, select, textarea {
-        padding: 14px 15px; border: 1px solid #ddd; border-radius: 6px;
-        font-family: 'Montserrat', sans-serif; font-size: 16px; width: 100%;
-        background-color: #fafafa; appearance: none;
-        transition: border-color var(--transicion);
-        min-height: 48px;
-    }
-    input:focus, select:focus, textarea:focus { border-color: var(--color-verde); }
-    textarea { resize: vertical; min-height: 90px; }
-
-    select {
-        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='%237B8E72'%3E%3Cpath fill-rule='evenodd' d='M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z' clip-rule='evenodd'/%3E%3C/svg%3E");
-        background-repeat: no-repeat;
-        background-position: right 14px center;
-        background-size: 16px;
-        padding-right: 40px;
-    }
-
-    .mensaje-error {
-        color: #b3402e; margin-top: 10px; font-size: 0.88rem;
-        display: flex; align-items: center; justify-content: center; gap: 6px;
-        text-align: center;
-    }
-    .mensaje-estado[aria-live] { min-height: 1.2em; }
-
-    .confirmacion-final { text-align: center; padding: 20px 10px; }
-    .confirmacion-final i { font-size: 2.6rem; color: var(--color-verde); margin-bottom: 14px; }
-    .confirmacion-final h3 { color: var(--color-verde); font-size: 1.8rem; margin-bottom: 12px; }
-
-    /* --- Footer --- */
-    footer { background-color: var(--color-verde-oscuro); color: var(--color-blanco); padding: 45px 20px; font-size: 0.9rem; }
-    footer .fuente-elegante { font-size: 2.1rem; margin-bottom: 6px; }
-    footer p { opacity: 0.85; letter-spacing: 3px; font-weight: 300; }
-
-    /* --- GALERÍA DE RECUERDOS --- */
-    .galeria-section {
-        background-color: var(--color-fondo-alt);
-    }
-    .album-card {
-        background: var(--color-blanco);
-        padding: 36px 18px;
-        border-radius: 12px;
-        box-shadow: var(--sombra-suave);
-        border-bottom: 4px solid var(--color-dorado);
-        max-width: 500px;
-        margin: 30px auto 0;
-        transition: transform var(--transicion), box-shadow var(--transicion);
-    }
-    .album-card:hover { transform: translateY(-4px); box-shadow: 0 15px 40px rgba(62,62,62,0.12); }
-    .album-card i.fa-google { font-size: 2.8rem; color: var(--color-dorado); margin-bottom: 18px; display: block; }
-    .album-card h3 { color: var(--color-verde); margin-bottom: 12px; font-size: 1.4rem; }
-    .album-card p { color: #666; font-size: 0.95rem; margin-bottom: 25px; line-height: 1.6; }
-
-    /* --- Modal Dress Code --- */
-    #modal-dress-code {
-        display: none; position: fixed; z-index: 1000; padding: 40px 16px;
-        left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.85);
-        cursor: zoom-out; overflow-y: auto;
-    }
-    #modal-dress-code img {
-        margin: auto; display: block; width: 100%; max-width: 700px;
-        border-radius: 4px; animation: zoomIn 0.3s;
-    }
-    #modal-close {
-        position: fixed; top: max(16px, env(safe-area-inset-top)); right: 16px;
-        color: #fff; font-size: 2rem; line-height: 1; background: none; border: none;
-        cursor: pointer; z-index: 1001; padding: 8px;
-    }
-    @keyframes zoomIn { from { transform: scale(0.5); opacity: 0; } to { transform: scale(1); opacity: 1; } }
-
-    @media (min-width: 600px) {
-        .card-grid { grid-template-columns: repeat(2, 1fr); }
-    }
-
-    @media (min-width: 768px) {
-        .card-grid { grid-template-columns: repeat(3, 1fr); }
-        .rsvp-container { padding: 42px; margin: 0 auto; max-width: 600px; }
-        .timeline { max-width: 620px; }
-        .btn { width: auto; }
-        #btn-calendario, #btn-validar, #btn-submit { width: 100%; }
-    }
-
-    @media (max-width: 380px) {
-        .section { padding: 50px 14px; }
-        .hero h1 { letter-spacing: 1px; }
-        .countdown-container { padding: 16px 4px; }
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-        html { scroll-behavior: auto; }
-        *, .animate__animated { animation-duration: 0.001ms !important; animation-iteration-count: 1 !important; transition-duration: 0.001ms !important; }
-        .scroll-cue { animation: none; }
-    }
-</style>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<header class="hero">
+<header class="hero" id="hero-header">
     <p class="eyebrow">Nuestra Boda</p>
     <h1>Edi & Pao</h1>
     <p class="fecha">12 . 12 . 2026</p>
@@ -349,7 +40,7 @@
 </div>
 
 <main>
-    <section class="section" id="historia" aria-labelledby="titulo-historia">
+    <section class="section revelar-elemento" id="historia" aria-labelledby="titulo-historia">
         <h2 class="section-title" id="titulo-historia">El Inicio de Nuestro Por Siempre</h2>
         <p class="section-subtitle">Una celebración tan íntima como nuestro amor.</p>
         <p class="texto-historia">Hemos decidido celebrar nuestro gran día de una manera muy especial, rodeados únicamente de las personas que han dejado la huella más profunda en nuestras vidas y en nuestra historia de amor.</p>
@@ -359,7 +50,7 @@
         <p class="texto-historia">El majestuoso Cañón del Combeima será el escenario perfecto. Queremos que esta microboda sea un refugio de paz, naturaleza y conexión. ¡Su presencia es nuestro mejor regalo!</p>
     </section>
 
-    <section class="section" style="background-color: var(--color-blanco);" aria-labelledby="titulo-coordenadas">
+    <section class="section revelar-elemento" style="background-color: var(--color-blanco);" aria-labelledby="titulo-coordenadas">
         <h2 class="section-title" id="titulo-coordenadas">Coordenadas del Gran Día</h2>
         <div class="card-grid">
             <div class="card">
@@ -378,14 +69,12 @@
                     <i class="fa-solid fa-diamond-turn-right" aria-hidden="true"></i> Cómo llegar
                 </a>
             </div>
+            
             <div class="card">
                 <i class="fa-solid fa-bed" aria-hidden="true"></i>
                 <h3>Hospedaje Especial</h3>
-
                 <img src="hotel-iguaima.jpg" alt="Cabañas del Hotel Iguaima" class="card-img" loading="lazy">
-
                 <p>Queremos que disfrutes sin afanes. Tu alojamiento en el hotel para la noche de la boda está completamente cubierto por nosotros.</p>
-
                 <div class="horarios-hotel">
                     <p><i class="fa-solid fa-clock"></i> Check-in: 3:00 P.M.</p>
                     <p><i class="fa-solid fa-clock-rotate-left"></i> Check-out: 11:00 A.M. (Domingo)</p>
@@ -396,12 +85,9 @@
                 <i class="fa-solid fa-champagne-glasses" aria-hidden="true"></i>
                 <h3>Dress Code</h3>
                 <p class="dato">Cóctel / Formal de Día</p>
-
                 <img src="dress-code.jpg" alt="Ideas de vestimenta" class="card-img"
                      style="cursor: zoom-in;" onclick="abrirModal()">
-
                 <p>Estilo bohemio y elegante en tonos tierra, verde salvia y neutros.<br><em>(Reserva el blanco para la novia).</em></p>
-
                 <button type="button" class="btn btn-secundario" onclick="abrirModal()" style="padding: 10px 15px; font-size: 0.8rem; margin-top: 15px;">
                     <i class="fa-solid fa-expand" aria-hidden="true"></i> Ver en pantalla completa
                 </button>
@@ -415,7 +101,7 @@
     </section>
 
     <section class="section" aria-labelledby="titulo-itinerario">
-        <h2 class="section-title" id="titulo-itinerario">El Itinerario</h2>
+        <h2 class="section-title revelar-elemento" id="titulo-itinerario">El Itinerario</h2>
         <ol class="timeline">
             <li class="timeline-item">
                 <i class="fa-solid fa-tree" aria-hidden="true"></i>
@@ -452,7 +138,7 @@
         </ol>
     </section>
 
-    <section class="section galeria-section" aria-labelledby="titulo-galeria">
+    <section class="section galeria-section revelar-elemento" aria-labelledby="titulo-galeria">
         <h2 class="section-title" id="titulo-galeria">Galería de Recuerdos</h2>
         <p class="section-subtitle">Comparte tus fotos y videos del gran día. ¡Cada instante cuenta!</p>
 
@@ -466,7 +152,7 @@
         </div>
     </section>
 
-    <section class="section" style="background-color: var(--color-fondo-alt);" aria-labelledby="titulo-rsvp">
+    <section class="section revelar-elemento" style="background-color: var(--color-fondo-alt);" aria-labelledby="titulo-rsvp">
         <h2 class="section-title" id="titulo-rsvp">R.S.V.P</h2>
         <p class="section-subtitle">Confirma tu asistencia antes del 15 de noviembre de 2026.</p>
 
@@ -513,7 +199,7 @@
                     <select id="hospedaje" name="Hospedaje" required>
                         <option value="">Selecciona una opción...</option>
                         <option value="Sí, me quedaré a dormir">Sí, aprovecharé el hospedaje</option>
-                        <option value="No, regresaré a casa">No, regresaré a casa tras la fiesta</option>
+                        <option value="No, regresará a casa">No, regresaré a casa tras la fiesta</option>
                         <option value="No aplica">No aplica (No asistiré)</option>
                     </select>
                 </div>
@@ -537,239 +223,10 @@
 </footer>
 
 <div id="modal-dress-code" role="dialog" aria-modal="true" aria-label="Dress code en pantalla completa">
-    <button type="button" id="modal-close" aria-label="Cerrar">&times;</button>
+    <button type="button" id="modal-close" aria-label="Cerrar">×</button>
     <img src="dress-code.jpg" alt="Dress Code Completo">
 </div>
 
-<script>
-(function () {
-    "use strict";
-
-    /* ====================================================
-       1. BASE DE DATOS LOCAL DE INVITADOS
-       ==================================================== */
-    const listaInvitados = {
-        "PAPIYMA": { nombre: "Papá y Má", cupos: 2 },
-        "STIVE":  { nombre: "Stiwar", cupos: 1 },
-        "MAMI":  { nombre: "Mamá", cupos: 1 },
-        "ANGJAV":  { nombre: "Manita y Javi", cupos: 2 },
-        "ERES":   { nombre: "Padre y Madre", cupos: 2 },
-        "ROBFAR":   { nombre: "Don Rowel y Tía Farly", cupos: 2 },
-        "CARKEV":   { nombre: "Tía Carmenza y Tió Kevin", cupos: 2 }
-    };
-
-    /* ====================================================
-       2. URL DEL GOOGLE APPS SCRIPT PARA R.S.V.P.
-       ==================================================== */
-    const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbx8EWLLccIEabQW-TgEtmDzv7pPt0aC_70zkW5nyL4AO6d5oXAHiKPWIndFYsZYR_CD/exec';
-
-    /* ====================================================
-       3. CONTADOR REGRESIVO
-       ==================================================== */
-    const weddingDate = new Date("2026-12-12T15:00:00-05:00").getTime();
-    const elDias = document.getElementById("days");
-    const elHoras = document.getElementById("hours");
-    const elMinutos = document.getElementById("minutes");
-    const elSegundos = document.getElementById("seconds");
-
-    function actualizarContador() {
-        const ahora = Date.now();
-        const distancia = weddingDate - ahora;
-
-        if (distancia <= 0) {
-            elDias.textContent = "00";
-            elHoras.textContent = "00";
-            elMinutos.textContent = "00";
-            elSegundos.textContent = "00";
-            return;
-        }
-
-        elDias.textContent = String(Math.floor(distancia / 86400000)).padStart(2, '0');
-        elHoras.textContent = String(Math.floor((distancia % 86400000) / 3600000)).padStart(2, '0');
-        elMinutos.textContent = String(Math.floor((distancia % 3600000) / 60000)).padStart(2, '0');
-        elSegundos.textContent = String(Math.floor((distancia % 60000) / 1000)).padStart(2, '0');
-    }
-    actualizarContador();
-    setInterval(actualizarContador, 1000);
-
-    /* ====================================================
-       4. AGREGAR AL CALENDARIO (.ics, sin dependencias)
-       ==================================================== */
-    const btnCalendario = document.getElementById('btn-calendario');
-    btnCalendario.addEventListener('click', function (e) {
-        e.preventDefault();
-        const icsContent = [
-            'BEGIN:VCALENDAR',
-            'VERSION:2.0',
-            'PRODID:-//Boda Edi & Pao//ES',
-            'BEGIN:VEVENT',
-            'UID:' + Date.now() + '@boda-edipao',
-            'DTSTAMP:20260101T000000Z',
-            'DTSTART:20261212T200000Z',
-            'DTEND:20261213T030000Z',
-            'SUMMARY:Boda de Edi & Pao',
-            'DESCRIPTION:Ceremonia y celebración en el Hotel Iguaima, Cañón del Combeima, Ibagué.',
-            'LOCATION:Hotel Iguaima, Cañón del Combeima, Ibagué, Tolima',
-            'END:VEVENT',
-            'END:VCALENDAR'
-        ].join('\r\n');
-
-        const blob = new Blob([icsContent], { type: 'text/calendar;charset=utf-8' });
-        const url = URL.createObjectURL(blob);
-        const enlace = document.createElement('a');
-        enlace.href = url;
-        enlace.download = 'boda-edi-pao.ics';
-        document.body.appendChild(enlace);
-        enlace.click();
-        document.body.removeChild(enlace);
-        URL.revokeObjectURL(url);
-    });
-
-    /* ====================================================
-       5. LÓGICA DEL FORMULARIO RSVP CON RESTRICCIÓN DE USO
-       ==================================================== */
-    const inputCodigo = document.getElementById('codigo-acceso');
-    const errorMensaje = document.getElementById('error-mensaje');
-    const loginSection = document.getElementById('login-section');
-    const formulario = document.getElementById('formulario-confirmacion');
-    const asistenciaSelect = document.getElementById('asistencia');
-    const divPases = document.getElementById('div-pases');
-    const selectPases = document.getElementById('numero-pases');
-    const btnSubmit = document.getElementById('btn-submit');
-    const formError = document.getElementById('form-error');
-
-    function validarCodigo() {
-        const codigo = inputCodigo.value.toUpperCase().trim();
-        const invitado = listaInvitados[codigo];
-
-        // 1. Validar que el código exista
-        if (!invitado) {
-            errorMensaje.innerHTML = '<i class="fa-solid fa-circle-exclamation" aria-hidden="true"></i> Código no válido. Intenta de nuevo.';
-            errorMensaje.classList.remove('oculto');
-            inputCodigo.setAttribute('aria-invalid', 'true');
-            return;
-        }
-
-        // 2. Validar que no haya sido usado ya (almacenado localmente)
-        if (localStorage.getItem('rsvp_confirmado_' + codigo)) {
-            errorMensaje.innerHTML = '<i class="fa-solid fa-circle-info" aria-hidden="true"></i> Este código ya fue utilizado para confirmar asistencia.';
-            errorMensaje.classList.remove('oculto');
-            return;
-        }
-
-        // Si pasa las validaciones, mostrar formulario
-        errorMensaje.classList.add('oculto');
-        loginSection.classList.add('oculto');
-        formulario.classList.remove('oculto');
-
-        document.getElementById('saludo-invitado').textContent = `¡Bienvenido(a), ${invitado.nombre}!`;
-        document.getElementById('nombre-interno').value = invitado.nombre;
-        document.getElementById('codigo-interno').value = codigo;
-        document.getElementById('max-pases').textContent = invitado.cupos;
-
-        selectPases.innerHTML = '';
-        for (let i = 1; i <= invitado.cupos; i++) {
-            const opcion = document.createElement('option');
-            opcion.value = String(i);
-            opcion.textContent = i === 1 ? '1 persona' : `${i} personas`;
-            selectPases.appendChild(opcion);
-        }
-
-        formulario.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
-
-    document.getElementById('btn-validar').addEventListener('click', validarCodigo);
-    inputCodigo.addEventListener('keydown', function (e) {
-        if (e.key === 'Enter') { e.preventDefault(); validarCodigo(); }
-    });
-
-    asistenciaSelect.addEventListener('change', function () {
-        if (this.value === "Sí, asistiré") divPases.classList.remove('oculto');
-        else divPases.classList.add('oculto');
-    });
-
-    formulario.addEventListener('submit', function (e) {
-        e.preventDefault();
-        formError.classList.add('oculto');
-
-        if (!asistenciaSelect.value || !document.getElementById('hospedaje').value) {
-            formError.textContent = 'Por favor completa todos los campos obligatorios.';
-            formError.classList.remove('oculto');
-            return;
-        }
-
-        if (SCRIPT_URL.includes('AQUI_PEGA_TU_URL')) {
-            formError.textContent = 'El formulario aún no está conectado. Contacta a los novios directamente por ahora.';
-            formError.classList.remove('oculto');
-            return;
-        }
-
-        btnSubmit.textContent = "Enviando...";
-        btnSubmit.disabled = true;
-
-        const codigoUsado = document.getElementById('codigo-interno').value;
-        const datos = {
-            codigo: codigoUsado,
-            nombre: document.getElementById('nombre-interno').value,
-            asistencia: asistenciaSelect.value,
-            asistentes: asistenciaSelect.value === 'Sí, asistiré' ? selectPases.value : 0,
-            hospedaje: document.getElementById('hospedaje').value,
-            restricciones: document.getElementById('menu').value.trim() || 'Ninguna'
-        };
-
-        fetch(SCRIPT_URL, {
-            method: 'POST',
-            body: JSON.stringify(datos),
-            headers: { 'Content-Type': 'text/plain;charset=utf-8' }
-        })
-        .then(function (respuesta) {
-            if (!respuesta.ok) throw new Error('Respuesta no válida del servidor');
-            return respuesta.json().catch(function () { return {}; });
-        })
-        .then(function () {
-            // Guardar en el dispositivo que este código ya fue usado con éxito
-            localStorage.setItem('rsvp_confirmado_' + codigoUsado, 'true');
-
-            // Mostrar mensaje de éxito
-            document.getElementById('rsvp-modulo').innerHTML =
-                '<div class="confirmacion-final">' +
-                '<i class="fa-solid fa-circle-check" aria-hidden="true"></i>' +
-                '<h3 class="fuente-elegante">¡Gracias!</h3>' +
-                '<p>Tu confirmación ha sido recibida con éxito. ¡Nos vemos el 12 de diciembre!</p>' +
-                '</div>';
-        })
-        .catch(function (error) {
-            console.error('Error al enviar RSVP:', error);
-            formError.textContent = 'Hubo un problema al enviar tu confirmación. Por favor intenta de nuevo.';
-            formError.classList.remove('oculto');
-            btnSubmit.textContent = "Confirmar Asistencia";
-            btnSubmit.disabled = false;
-        });
-    });
-
-    /* ====================================================
-       6. MODAL DRESS CODE
-       ==================================================== */
-    const modal = document.getElementById('modal-dress-code');
-    const modalClose = document.getElementById('modal-close');
-
-    window.abrirModal = function () {
-        modal.style.display = 'block';
-        document.body.style.overflow = 'hidden';
-    };
-    function cerrarModal() {
-        modal.style.display = 'none';
-        document.body.style.overflow = '';
-    }
-    modal.addEventListener('click', function (e) {
-        if (e.target === modal) cerrarModal();
-    });
-    modalClose.addEventListener('click', cerrarModal);
-    document.addEventListener('keydown', function (e) {
-        if (e.key === 'Escape' && modal.style.display === 'block') cerrarModal();
-    });
-})();
-</script>
-
+<script src="script.js"></script>
 </body>
 </html>
