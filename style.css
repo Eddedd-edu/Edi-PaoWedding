@@ -370,33 +370,6 @@ footer p { opacity: 0.85; letter-spacing: 3px; font-weight: 300; }
     cursor: pointer; z-index: 1001; padding: 8px;
 }
 @keyframes zoomIn { from { transform: scale(0.9); opacity: 0; } to { transform: scale(1); opacity: 1; } }
-
-@media (min-width: 600px) {
-    .card-grid { grid-template-columns: repeat(2, 1fr); }
-}
-
-@media (min-width: 768px) {
-    .card-grid { grid-template-columns: repeat(3, 1fr); }
-    .rsvp-container { padding: 42px; margin: 0 auto; max-width: 600px; }
-    .timeline { max-width: 620px; }
-    .btn { width: auto; }
-    #btn-calendario, #btn-validar, #btn-submit { width: 100%; }
-}
-
-@media (max-width: 380px) {
-    .section { padding: 50px 14px; }
-    .hero h1 { letter-spacing: 1px; }
-    .countdown-container { padding: 16px 4px; }
-}
-
-@media (prefers-reduced-motion: reduce) {
-    html { scroll-behavior: auto; }
-    *, .animate__animated { animation-duration: 0.001ms !important; animation-iteration-count: 1 !important; transition-duration: 0.001ms !important; }
-    .scroll-cue { animation: none; }
-    .revelar-elemento { opacity: 1 !important; transform: none !important; transition: none !important; }
-    .timeline-item { opacity: 1 !important; transform: none !important; transition: none !important; }
-    .hoja-caida { display: none !important; }
-}
 /* --- Botón Flotante de Música --- */
 .btn-musica {
     position: fixed;
@@ -482,4 +455,30 @@ footer p { opacity: 0.85; letter-spacing: 3px; font-weight: 300; }
     font-size: 0.95rem;
     line-height: 1.7;
     animation: fadeInDown 0.3s ease-out;
+}
+@media (min-width: 600px) {
+    .card-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (min-width: 768px) {
+    .card-grid { grid-template-columns: repeat(3, 1fr); }
+    .rsvp-container { padding: 42px; margin: 0 auto; max-width: 600px; }
+    .timeline { max-width: 620px; }
+    .btn { width: auto; }
+    #btn-calendario, #btn-validar, #btn-submit { width: 100%; }
+}
+
+@media (max-width: 380px) {
+    .section { padding: 50px 14px; }
+    .hero h1 { letter-spacing: 1px; }
+    .countdown-container { padding: 16px 4px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, .animate__animated { animation-duration: 0.001ms !important; animation-iteration-count: 1 !important; transition-duration: 0.001ms !important; }
+    .scroll-cue { animation: none; }
+    .revelar-elemento { opacity: 1 !important; transform: none !important; transition: none !important; }
+    .timeline-item { opacity: 1 !important; transform: none !important; transition: none !important; }
+    .hoja-caida { display: none !important; }
 }
