@@ -70,7 +70,7 @@ img { max-width: 100%; height: auto; }
     color: var(--color-blanco);
     padding: 20px;
     background: linear-gradient(rgba(35, 46, 38, 0.45), rgba(35, 46, 38, 0.6)),
-                url('DSC_0714.jpeg') no-repeat center center/cover;
+                url('Head.PNG') no-repeat center center/cover;
     background-attachment: scroll;
     overflow: hidden;
 }
