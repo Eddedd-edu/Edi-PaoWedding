@@ -271,4 +271,30 @@
     document.addEventListener('keydown', function (e) {
         if (e.key === 'Escape' && modal.style.display === 'block') cerrarModal();
     });
+    /* ====================================================
+       9. REPRODUCTOR DE MÚSICA FLOTANTE
+       ==================================================== */
+    const bgMusic = document.getElementById('bg-music');
+    const btnMusica = document.getElementById('btn-musica-flotante');
+    const iconoMusica = btnMusica.querySelector('i');
+
+    // Inicializamos el volumen un poco más bajo para que sea ambiental (30%)
+    bgMusic.volume = 0.3;
+
+    btnMusica.addEventListener('click', function() {
+        if (bgMusic.paused) {
+            bgMusic.play().then(() => {
+                btnMusica.classList.add('tocando');
+                iconoMusica.classList.remove('fa-music');
+                iconoMusica.classList.add('fa-pause');
+            }).catch(error => {
+                console.error("El navegador bloqueó la reproducción:", error);
+            });
+        } else {
+            bgMusic.pause();
+            btnMusica.classList.remove('tocando');
+            iconoMusica.classList.remove('fa-pause');
+            iconoMusica.classList.add('fa-music');
+        }
+    });
 })();
