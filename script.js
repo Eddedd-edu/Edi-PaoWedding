@@ -22,7 +22,7 @@
     /* ====================================================
        3. CONTADOR REGRESIVO
        ==================================================== */
-    const weddingDate = new Date("2026-12-12T15:00:00-05:00").getTime();
+    const weddingDate = new Date("2026-12-12T14:30:00-05:00").getTime();
     const elDias = document.getElementById("days");
     const elHoras = document.getElementById("hours");
     const elMinutos = document.getElementById("minutes");
@@ -54,7 +54,7 @@
     function crearEfectoHojas() {
         if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
         const hero = document.getElementById('hero-header');
-        const iconosHojas = ['🍂', '🍁', '🍃', '💍','🍀'];
+        const iconosHojas = ['🍂', '🍁', '🍃', '💍','🍀','🫧'];
         const maxHojas = 12;
 
         for (let i = 0; i < maxHojas; i++) {
