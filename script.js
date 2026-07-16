@@ -1,3 +1,10 @@
+window.addEventListener("load", function() {
+    const preloader = document.getElementById("preloader");
+    // Damos un pequeño respiro extra (300ms) para que la desaparición se sienta más premium
+    setTimeout(() => {
+        preloader.classList.add("preloader-hidden");
+    }, 300);
+});
 (function () {
     "use strict";
 
