@@ -586,3 +586,44 @@ footer p { opacity: 0.85; letter-spacing: 3px; font-weight: 300; }
 }
 
 .preloader-hidden { opacity: 0; visibility: hidden; }
+/* ====================================================
+   BOTÓN FLOTANTE RSVP
+   ==================================================== */
+.btn-flotante-rsvp {
+    position: fixed;
+    bottom: 20px;
+    right: 20px; /* Lo ponemos a la derecha */
+    background-color: var(--color-principal); /* Tu tono verde salvia */
+    color: var(--color-fondo);
+    padding: 12px 20px;
+    border-radius: 50px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-decoration: none;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    z-index: 998; /* Un poco menos que el preloader pero más que el resto */
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    opacity: 0.9;
+}
+
+.btn-flotante-rsvp:hover, .btn-flotante-rsvp:active {
+    transform: translateY(-3px);
+    background-color: #65755D; /* Un verde un poco más oscuro al tocarlo */
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+    opacity: 1;
+    color: var(--color-fondo);
+}
+
+/* Si tu botón de música está a la derecha, podemos mover este a la izquierda para que no choquen en celulares */
+@media (max-width: 768px) {
+    .btn-flotante-rsvp {
+        bottom: 20px;
+        right: auto;
+        left: 20px; /* En móviles lo pasamos a la izquierda */
+        padding: 10px 16px;
+        font-size: 0.85rem;
+    }
+}
