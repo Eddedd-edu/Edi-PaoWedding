@@ -17,8 +17,13 @@ window.addEventListener("load", function() {
         "MAMI":  { nombre: "Mamá", cupos: 1 },
         "ANGJAV":  { nombre: "Manita y Javi", cupos: 2 },
         "ERES":   { nombre: "Padre y Madre", cupos: 2 },
+        "NATA":   { nombre: "NATA", cupos: 1 },
         "ROBFAR":   { nombre: "Don Rowel y Tía Farly", cupos: 2 },
         "CARKEV":   { nombre: "Tía Carmenza y Tío Kevin", cupos: 2 }
+        "CAMI":   { nombre: "CAMILILLA", cupos: 1 },
+        "KELLY":   { nombre: "KELLY JOHANA", cupos: 1 },
+        "ROCI":   { nombre: "ROCI", cupos: 1 },
+        "VIVI":   { nombre: "VIVI", cupos: 1 },
     };
 
     /* ====================================================
